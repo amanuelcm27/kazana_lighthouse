@@ -11,12 +11,13 @@ class RawOpportunity(models.Model):
     ]
 
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
-    source_name = models.CharField(max_length=255)  
-    url = models.URLField(blank=True, null=True)    
-    raw_content = models.TextField()               
-    file_name = models.CharField(max_length=255, blank=True, null=True)  
+    source_name = models.TextField()  
+    url = models.TextField(blank=True, null=True)  
+    raw_content = models.TextField() 
+    file_name = models.TextField(blank=True, null=True)  
     fetched_at = models.DateTimeField(auto_now_add=True)
-    processed = models.BooleanField(default=False)  
+    processed = models.BooleanField(default=False)
+
     STATUS_CHOICES = [
         ("pending", "Pending Processing"),
         ("valid", "Valid Opportunity"),
@@ -28,11 +29,11 @@ class RawOpportunity(models.Model):
         return f"{self.source_name} | {self.source_type} | fetched {self.fetched_at}"
 
 
+
 class SourceRegistry(models.Model):
     SOURCE_TYPES = [
         ('static', 'Static HTML Page'),
         ('dynamic', 'Dynamic JS Page'),
-        ('api', 'API'),
         ('rss', 'RSS Feed'),
         ('file', 'PDF/Image'),
     ]
@@ -42,6 +43,6 @@ class SourceRegistry(models.Model):
     base_url = models.URLField()
     active = models.BooleanField(default=True)       # enable/disable scraping
     last_scraped = models.DateTimeField(blank=True, null=True)
-
+    
     def __str__(self):
         return f"{self.name} | {self.source_type}"
