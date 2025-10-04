@@ -32,17 +32,20 @@ class RawOpportunity(models.Model):
 
 class SourceRegistry(models.Model):
     SOURCE_TYPES = [
+        ('google', "Google Search Result"),
+        ("custom", "Manually Added Source")
+    ]
+    WEB_TYPES = [
         ('static', 'Static HTML Page'),
         ('dynamic', 'Dynamic JS Page'),
-        ('rss', 'RSS Feed'),
-        ('file', 'PDF/Image'),
+      
     ]
-
     name = models.CharField(max_length=255)          # e.g., un.org, grants.gov
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
     base_url = models.URLField()
-    active = models.BooleanField(default=True)       # enable/disable scraping
+    active = models.BooleanField(default=True)       
+    web_type = models.CharField(max_length=20, choices=WEB_TYPES, default='static')
     last_scraped = models.DateTimeField(blank=True, null=True)
-    
+
     def __str__(self):
         return f"{self.name} | {self.source_type}"
