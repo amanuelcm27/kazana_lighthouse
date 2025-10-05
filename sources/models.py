@@ -16,12 +16,10 @@ class RawOpportunity(models.Model):
     raw_content = models.TextField() 
     file_name = models.TextField(blank=True, null=True)  
     fetched_at = models.DateTimeField(auto_now_add=True)
-    processed = models.BooleanField(default=False)
 
     STATUS_CHOICES = [
-        ("pending", "Pending Processing"),
-        ("valid", "Valid Opportunity"),
-        ("garbage", "Garbage / Irrelevant"),
+        ("pending", " Pending Processing "),
+        ("cleaned", " Cleaned Successfully "),
     ]
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
     
@@ -40,7 +38,7 @@ class SourceRegistry(models.Model):
         ('dynamic', 'Dynamic JS Page'),
       
     ]
-    name = models.CharField(max_length=255)          # e.g., un.org, grants.gov
+    name = models.CharField(max_length=255)         
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
     base_url = models.URLField()
     active = models.BooleanField(default=True)       

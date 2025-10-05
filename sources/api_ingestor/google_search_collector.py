@@ -8,8 +8,6 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from dotenv import load_dotenv
 from urllib.parse import urlparse
-import sys
-import pathlib
 from core.utils import init_django
 init_django()
 
