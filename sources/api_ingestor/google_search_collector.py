@@ -1,3 +1,6 @@
+import requests
+import re
+from bs4 import BeautifulSoup
 import os
 import logging
 import django
@@ -7,30 +10,32 @@ from dotenv import load_dotenv
 from urllib.parse import urlparse
 import sys
 import pathlib
+from core.utils import init_django
+init_django()
 
-BASE_DIR = pathlib.Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(BASE_DIR))
+from sources.models import RawOpportunity, SourceRegistry
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lighthouse.settings")
-django.setup()
 
 from sources.models import SourceRegistry
 
 load_dotenv()
+
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 SEARCH_ENGINE_ID = os.getenv("GOOGLE_CX")
 
 logging.basicConfig(
-    filename="google_ingestor.log",
+    filename="core/logs/google_ingestor.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
+
 
 def normalize_url(url):
     """Remove fragments and ensure https."""
     parsed = urlparse(url)
     base = f"{parsed.scheme or 'https'}://{parsed.netloc}{parsed.path}"
     return base.rstrip('/')
+
 
 def google_search(query, num_results=10):
     """Query Google Custom Search API safely."""
@@ -42,6 +47,7 @@ def google_search(query, num_results=10):
         logging.error(f"Google API error: {e}")
         return []
 
+
 def save_to_registry(results):
     """Insert into DB if new."""
     for item in results:
@@ -52,7 +58,7 @@ def save_to_registry(results):
         if not SourceRegistry.objects.filter(base_url=link).exists():
             SourceRegistry.objects.create(
                 name=name,
-                source_type="api",
+                source_type="google",
                 base_url=link,
                 active=True
             )
@@ -60,11 +66,13 @@ def save_to_registry(results):
         else:
             logging.info(f"Exists: {link}")
 
+
 def main():
     query = "Startup grants, funding opportunities, projects, expressions of interest for startups"
     results = google_search(query, num_results=10)
     save_to_registry(results)
     logging.info("Source registry updated successfully.")
+
 
 if __name__ == "__main__":
     main()

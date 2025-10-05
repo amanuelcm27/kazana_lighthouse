@@ -1,0 +1,120 @@
+2025-10-05 19:33:11,266 - INFO - Analyzing https://www.worldbank.org to choose scraper...
+2025-10-05 19:33:12,120 - INFO - Site is Not Dynamic, Skiping https://www.worldbank.org
+2025-10-05 19:33:12,120 - INFO - Analyzing https://www.ifc.org to choose scraper...
+2025-10-05 19:33:12,659 - INFO - Site is Not Dynamic, Skiping https://www.ifc.org
+2025-10-05 19:33:12,659 - INFO - Analyzing https://www.undp.org/ethiopia to choose scraper...
+2025-10-05 19:33:13,809 - INFO - Using DYNAMIC scraper for https://www.undp.org/ethiopia
+2025-10-05 19:36:10,076 - INFO - Starting dynamic scraping for www.undp.org
+2025-10-05 19:36:10,076 - INFO - Loading https://www.undp.org/ethiopia
+2025-10-05 19:36:17,139 - INFO - Saved RawOpportunity for https://www.undp.org/ethiopia
+2025-10-05 19:36:23,018 - INFO - Closed Selenium driver for www.undp.org
+2025-10-05 19:36:23,018 - INFO - Analyzing https://www.usaid.gov to choose scraper...
+2025-10-05 19:36:26,332 - INFO - Site is Not Dynamic, Skiping https://www.usaid.gov
+2025-10-05 19:36:26,332 - INFO - Analyzing https://www.afdb.org to choose scraper...
+2025-10-05 19:36:26,763 - INFO - Using DYNAMIC scraper for https://www.afdb.org
+2025-10-05 19:36:28,026 - INFO - Starting dynamic scraping for www.afdb.org
+2025-10-05 19:36:28,027 - INFO - Loading https://www.afdb.org
+2025-10-05 19:36:36,637 - INFO - Saved RawOpportunity for https://www.afdb.org
+2025-10-05 19:36:41,860 - INFO - Closed Selenium driver for www.afdb.org
+2025-10-05 19:36:41,860 - INFO - Analyzing https://www.ethiopiatrustfund.org to choose scraper...
+2025-10-05 19:36:43,507 - INFO - Site is Not Dynamic, Skiping https://www.ethiopiatrustfund.org
+2025-10-05 19:36:43,507 - INFO - Analyzing https://au.int to choose scraper...
+2025-10-05 19:36:46,880 - INFO - Using DYNAMIC scraper for https://au.int
+2025-10-05 19:36:48,219 - INFO - Starting dynamic scraping for au.int
+2025-10-05 19:36:48,219 - INFO - Loading https://au.int
+2025-10-05 19:38:48,223 - ERROR - Failed to load https://au.int: HTTPConnectionPool(host='localhost', port=62107): Read timed out. (read timeout=120)
+2025-10-05 19:40:51,354 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=62107): Read timed out. (read timeout=120)")': /session/bbb142e964e59c58f929e5823511e4d7
+2025-10-05 19:41:50,347 - INFO - Closed Selenium driver for au.int
+2025-10-05 19:41:50,347 - INFO - Analyzing https://auedpafrica.com to choose scraper...
+2025-10-05 19:41:54,804 - INFO - Site is Not Dynamic, Skiping https://auedpafrica.com
+2025-10-05 19:41:54,804 - INFO - Analyzing https://international-partnerships.ec.europa.eu to choose scraper...
+2025-10-05 19:41:55,786 - INFO - Using DYNAMIC scraper for https://international-partnerships.ec.europa.eu
+2025-10-05 19:41:57,014 - INFO - Starting dynamic scraping for international-partnerships.ec.europa.eu
+2025-10-05 19:41:57,014 - INFO - Loading https://international-partnerships.ec.europa.eu
+2025-10-05 19:42:11,633 - INFO - Saved RawOpportunity for https://international-partnerships.ec.europa.eu
+2025-10-05 19:42:15,584 - INFO - Loading https://international-partnerships.ec.europa.eu/funding-and-technical-assistance_en
+2025-10-05 19:42:22,659 - INFO - Saved RawOpportunity for https://international-partnerships.ec.europa.eu/funding-and-technical-assistance_en
+2025-10-05 19:42:27,153 - INFO - Loading https://international-partnerships.ec.europa.eu/funding-and-technical-assistance/looking-funding_en
+2025-10-05 19:42:34,443 - INFO - Saved RawOpportunity for https://international-partnerships.ec.europa.eu/funding-and-technical-assistance/looking-funding_en
+2025-10-05 19:42:38,018 - INFO - Loading https://international-partnerships.ec.europa.eu/funding-and-technical-assistance/guidelines_en
+2025-10-05 19:42:41,752 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/d1d593f9fbaa94a9abc38191ad2ca7b4
+2025-10-05 19:42:45,829 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002254D482710>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d1d593f9fbaa94a9abc38191ad2ca7b4
+2025-10-05 19:42:49,917 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002254D4828C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/d1d593f9fbaa94a9abc38191ad2ca7b4
+2025-10-05 19:44:00,318 - INFO - Analyzing https://www.worldbank.org to choose scraper...
+2025-10-05 19:44:00,910 - INFO - Site is Not Dynamic, Skiping https://www.worldbank.org
+2025-10-05 19:44:00,910 - INFO - Analyzing https://www.ifc.org to choose scraper...
+2025-10-05 19:44:01,180 - INFO - Using DYNAMIC scraper for https://www.ifc.org
+2025-10-05 19:44:02,896 - INFO - Starting dynamic scraping for www.ifc.org
+2025-10-05 19:44:02,896 - INFO - Loading https://www.ifc.org
+2025-10-05 19:44:16,822 - INFO - Saved RawOpportunity for https://www.ifc.org
+2025-10-05 19:44:19,856 - INFO - Loading https://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-05 19:44:26,568 - INFO - Saved RawOpportunity for https://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-05 19:44:30,631 - INFO - Loading https://www.ifc.org/ko/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-05 19:44:38,017 - INFO - Saved RawOpportunity for https://www.ifc.org/ko/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-05 19:44:41,309 - INFO - Loading mailto:?body=IFC offers a wide variety of financial products for private sector projects in developing countries.%0Dhttps://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing&subject=How to Apply for Financing | International Finance Corporation (IFC)
+2025-10-05 19:44:47,021 - INFO - Saved RawOpportunity for mailto:?body=IFC offers a wide variety of financial products for private sector projects in developing countries.%0Dhttps://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing&subject=How to Apply for Financing | International Finance Corporation (IFC)
+2025-10-05 19:44:49,679 - INFO - Loading https://www.ifc.org/en/what-we-do/products-and-services/ifc-project-cycle
+2025-10-05 19:44:56,384 - INFO - Saved RawOpportunity for https://www.ifc.org/en/what-we-do/products-and-services/ifc-project-cycle
+2025-10-05 19:45:03,041 - INFO - Closed Selenium driver for www.ifc.org
+2025-10-05 19:45:03,041 - INFO - Analyzing https://www.undp.org/ethiopia to choose scraper...
+2025-10-05 19:45:03,533 - INFO - Site is Not Dynamic, Skiping https://www.undp.org/ethiopia
+2025-10-05 19:45:03,533 - INFO - Analyzing https://www.usaid.gov to choose scraper...
+2025-10-05 19:45:04,889 - INFO - Site is Not Dynamic, Skiping https://www.usaid.gov
+2025-10-05 19:45:04,889 - INFO - Analyzing https://www.afdb.org to choose scraper...
+2025-10-05 19:45:05,254 - INFO - Using DYNAMIC scraper for https://www.afdb.org
+2025-10-05 19:45:06,777 - INFO - Starting dynamic scraping for www.afdb.org
+2025-10-05 19:45:06,777 - INFO - Loading https://www.afdb.org
+2025-10-05 19:45:14,335 - INFO - Saved RawOpportunity for https://www.afdb.org
+2025-10-05 19:45:20,152 - INFO - Closed Selenium driver for www.afdb.org
+2025-10-05 19:45:20,152 - INFO - Analyzing https://www.ethiopiatrustfund.org to choose scraper...
+2025-10-05 19:45:20,866 - INFO - Site is Not Dynamic, Skiping https://www.ethiopiatrustfund.org
+2025-10-05 19:45:20,866 - INFO - Analyzing https://au.int to choose scraper...
+2025-10-05 19:45:23,052 - INFO - Using DYNAMIC scraper for https://au.int
+2025-10-05 19:45:24,289 - INFO - Starting dynamic scraping for au.int
+2025-10-05 19:45:24,290 - INFO - Loading https://au.int
+2025-10-05 19:47:24,294 - ERROR - Failed to load https://au.int: HTTPConnectionPool(host='localhost', port=61848): Read timed out. (read timeout=120)
+2025-10-05 19:49:27,485 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=61848): Read timed out. (read timeout=120)")': /session/6a1bc04435efbb10320c47272366f2bd
+2025-10-05 19:50:16,114 - INFO - Closed Selenium driver for au.int
+2025-10-05 19:50:16,114 - INFO - Analyzing https://auedpafrica.com to choose scraper...
+2025-10-05 19:50:16,457 - INFO - Using DYNAMIC scraper for https://auedpafrica.com
+2025-10-05 19:50:17,893 - INFO - Starting dynamic scraping for auedpafrica.com
+2025-10-05 19:50:17,893 - INFO - Loading https://auedpafrica.com
+2025-10-05 19:52:17,902 - ERROR - Failed to load https://auedpafrica.com: HTTPConnectionPool(host='localhost', port=49766): Read timed out. (read timeout=120)
+2025-10-05 19:54:22,021 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=49766): Read timed out. (read timeout=120)")': /session/71c24c2b16e6627dc71c9b116ce8eecc
+2025-10-05 19:54:25,382 - INFO - Closed Selenium driver for auedpafrica.com
+2025-10-05 19:54:25,382 - INFO - Analyzing https://international-partnerships.ec.europa.eu to choose scraper...
+2025-10-05 19:54:27,471 - INFO - Site is Not Dynamic, Skiping https://international-partnerships.ec.europa.eu
+2025-10-05 19:54:27,471 - INFO - Analyzing https://www.giz.de to choose scraper...
+2025-10-05 19:54:29,543 - INFO - Using DYNAMIC scraper for https://www.giz.de
+2025-10-05 19:54:30,802 - INFO - Starting dynamic scraping for www.giz.de
+2025-10-05 19:54:30,802 - INFO - Loading https://www.giz.de
+2025-10-05 19:55:46,594 - INFO - Saved RawOpportunity for https://www.giz.de
+2025-10-05 19:55:53,529 - INFO - Closed Selenium driver for www.giz.de
+2025-10-05 19:55:53,529 - INFO - Analyzing https://www.gov.uk/international-development-funding to choose scraper...
+2025-10-05 19:55:55,895 - INFO - Site is Not Dynamic, Skiping https://www.gov.uk/international-development-funding
+2025-10-05 19:55:55,895 - INFO - Analyzing https://widu.africa to choose scraper...
+2025-10-05 19:55:57,250 - INFO - Site is Not Dynamic, Skiping https://widu.africa
+2025-10-05 19:55:57,250 - INFO - Analyzing https://www.openvc.app to choose scraper...
+2025-10-05 19:55:58,876 - INFO - Using DYNAMIC scraper for https://www.openvc.app
+2025-10-05 19:56:00,103 - INFO - Starting dynamic scraping for www.openvc.app
+2025-10-05 19:56:00,104 - INFO - Loading https://www.openvc.app
+2025-10-05 19:56:15,050 - INFO - Saved RawOpportunity for https://www.openvc.app
+2025-10-05 19:56:20,060 - INFO - Loading https://techfundingnews.com/welsh-startup-laennec-ai-bags-375k-to-turn-smartphones-into-digital-stethoscopes/
+2025-10-05 19:56:42,731 - INFO - Saved RawOpportunity for https://techfundingnews.com/welsh-startup-laennec-ai-bags-375k-to-turn-smartphones-into-digital-stethoscopes/
+2025-10-05 19:56:45,859 - INFO - Loading https://techfundingnews.com/tag/x/
+2025-10-05 19:57:07,958 - INFO - Saved RawOpportunity for https://techfundingnews.com/tag/x/
+2025-10-05 19:57:12,960 - INFO - Loading https://techfundingnews.com/category/europe/
+2025-10-05 19:57:23,602 - INFO - Saved RawOpportunity for https://techfundingnews.com/category/europe/
+2025-10-05 19:57:26,058 - INFO - Loading https://techfundingnews.com/category/vc/
+2025-10-05 19:57:37,315 - INFO - Saved RawOpportunity for https://techfundingnews.com/category/vc/
+2025-10-05 19:57:41,288 - INFO - Loading https://techfundingnews.com/category/asia/
+2025-10-05 19:57:51,743 - INFO - Saved RawOpportunity for https://techfundingnews.com/category/asia/
+2025-10-05 19:57:55,965 - INFO - Loading https://techfundingnews.com/tag/workertech/
+2025-10-05 19:58:06,779 - INFO - Saved RawOpportunity for https://techfundingnews.com/tag/workertech/
+2025-10-05 19:58:10,556 - INFO - Loading https://techfundingnews.com/category/ecommerce/
+2025-10-05 19:58:21,581 - INFO - Saved RawOpportunity for https://techfundingnews.com/category/ecommerce/
+2025-10-05 19:58:24,303 - INFO - Loading https://techfundingnews.com/tag/funding/
+2025-10-05 19:58:35,001 - INFO - Saved RawOpportunity for https://techfundingnews.com/tag/funding/
+2025-10-05 19:58:39,115 - INFO - Loading https://techfundingnews.com/terms-of-use/
+2025-10-05 19:58:49,794 - INFO - Saved RawOpportunity for https://techfundingnews.com/terms-of-use/
+2025-10-05 19:58:50,142 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /session/0ca5cb4f0b7451a6c74717f35e7d6888

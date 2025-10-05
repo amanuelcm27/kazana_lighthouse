@@ -4,16 +4,9 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import logging
-import django
-import os
-import sys
-import pathlib
+from core.utils import init_django
+init_django()
 
-BASE_DIR = pathlib.Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(BASE_DIR))
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "lighthouse.settings")
-django.setup()
 from sources.models import RawOpportunity, SourceRegistry
 
 logging.basicConfig(
@@ -22,7 +15,7 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-KEYWORDS = ["grant", "funding", "opportunity", "project", "tender", "apply"]
+KEYWORDS = ["grant", "funding", "opportunity", "procurement", "tender", "opportunity"]
 
 MIN_DELAY = 1
 MAX_DELAY = 5
@@ -83,8 +76,8 @@ def scrape_static_source(source_registry_entry, max_depth=2, max_pages=10):
         time.sleep(random.uniform(MIN_DELAY, MAX_DELAY))
 
 def run_scraper():
-    sources = SourceRegistry.objects.filter(active=True, source_type="static")
-    for source in sources[:100]:
+    sources = SourceRegistry.objects.filter(active=True, source_type="google")
+    for source in sources:
         logging.info(f"Starting scraping for {source.base_url}")
         scrape_static_source(source)
 

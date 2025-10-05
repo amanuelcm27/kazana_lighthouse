@@ -1,0 +1,241 @@
+2025-10-04 17:05:46,079 - INFO - Starting scraping for https://environment.ec.europa.eu/funding_en
+2025-10-04 17:05:46,079 - INFO - Fetching https://environment.ec.europa.eu/funding_en
+2025-10-04 17:05:48,405 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_en
+2025-10-04 17:05:51,534 - INFO - Fetching https://environment.ec.europa.eu/funding_fi
+2025-10-04 17:05:54,166 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_fi
+2025-10-04 17:05:57,951 - INFO - Fetching https://cinea.ec.europa.eu/news-events/events/info-session-green-assist-eu-advisory-support-projects-towards-water-resilience-2025-05-13_en
+2025-10-04 17:06:00,095 - INFO - Saved RawOpportunity for https://cinea.ec.europa.eu/news-events/events/info-session-green-assist-eu-advisory-support-projects-towards-water-resilience-2025-05-13_en
+2025-10-04 17:06:01,477 - INFO - Fetching https://environment.ec.europa.eu/funding_bg
+2025-10-04 17:06:05,819 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_bg
+2025-10-04 17:06:08,701 - INFO - Fetching https://environment.ec.europa.eu/funding_hr
+2025-10-04 17:06:15,478 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_hr
+2025-10-04 17:06:18,582 - INFO - Fetching https://environment.ec.europa.eu/funding_el
+2025-10-04 17:06:22,371 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_el
+2025-10-04 17:06:26,445 - INFO - Fetching https://environment.ec.europa.eu/funding_fr
+2025-10-04 17:06:29,537 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_fr
+2025-10-04 17:06:33,981 - INFO - Fetching https://ec.europa.eu/info/funding-tenders/find-funding/eu-funding-programmes_en
+2025-10-04 17:06:37,922 - INFO - Saved RawOpportunity for https://ec.europa.eu/info/funding-tenders/find-funding/eu-funding-programmes_en
+2025-10-04 17:06:40,584 - INFO - Fetching https://environment.ec.europa.eu/funding_ga
+2025-10-04 17:06:44,790 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_ga
+2025-10-04 17:06:48,991 - INFO - Fetching https://ec.europa.eu/environment/funding/cei_lc_en.htm
+2025-10-04 17:06:51,356 - INFO - Saved RawOpportunity for https://ec.europa.eu/environment/funding/cei_lc_en.htm
+2025-10-04 17:06:56,198 - INFO - Starting scraping for https://www.eif.org/
+2025-10-04 17:06:56,198 - INFO - Fetching https://www.eif.org/
+2025-10-04 17:07:00,236 - INFO - Saved RawOpportunity for https://www.eif.org/
+2025-10-04 17:07:04,986 - INFO - Starting scraping for https://www2.fundsforngos.org/
+2025-10-04 17:07:04,986 - INFO - Fetching https://www2.fundsforngos.org/
+2025-10-04 17:07:06,237 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/
+2025-10-04 17:07:08,966 - INFO - Fetching https://www2.fundsforngos.org/arts-culture/open-call-dutch-embassy-in-brussels-grant-program-in-belgium/
+2025-10-04 17:07:14,909 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/arts-culture/open-call-dutch-embassy-in-brussels-grant-program-in-belgium/
+2025-10-04 17:07:18,392 - INFO - Fetching https://fundsforcompanies.fundsforngos.org/area/latest-grants-and-resources-for-sustainable-development/
+2025-10-04 17:07:20,311 - INFO - Saved RawOpportunity for https://fundsforcompanies.fundsforngos.org/area/latest-grants-and-resources-for-sustainable-development/
+2025-10-04 17:07:22,200 - INFO - Fetching https://www2.fundsforngos.org/education/request-for-applications-nihcm-foundations-journalism-grants-us/
+2025-10-04 17:07:24,984 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/education/request-for-applications-nihcm-foundations-journalism-grants-us/
+2025-10-04 17:07:27,404 - INFO - Fetching https://www2.fundsforngos.org/education/entries-open-for-the-magdalen-hospital-trust-grant-uk/
+2025-10-04 17:07:29,226 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/education/entries-open-for-the-magdalen-hospital-trust-grant-uk/
+2025-10-04 17:07:32,461 - INFO - Fetching https://www2.fundsforngos.org/research/apply-for-marie-sklodowska-curie-cofund-program/
+2025-10-04 17:07:35,039 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/research/apply-for-marie-sklodowska-curie-cofund-program/
+2025-10-04 17:07:36,370 - INFO - Fetching https://www2.fundsforngos.org/business-industry/apply-now-to-join-the-star-venture-programme/
+2025-10-04 17:07:38,436 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/business-industry/apply-now-to-join-the-star-venture-programme/
+2025-10-04 17:07:39,612 - INFO - Fetching https://www2.fundsforngos.org/research/call-for-applications-conservation-grant-program/
+2025-10-04 17:07:41,355 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/research/call-for-applications-conservation-grant-program/
+2025-10-04 17:07:44,930 - INFO - Fetching https://www2.fundsforngos.org/health/apply-for-glows-medium-grant-program-australia/
+2025-10-04 17:07:47,587 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/health/apply-for-glows-medium-grant-program-australia/
+2025-10-04 17:07:50,504 - INFO - Fetching https://www2.fundsforngos.org/community-development/township-of-malahide-announces-community-grant-program-canada/
+2025-10-04 17:08:06,623 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org/community-development/township-of-malahide-announces-community-grant-program-canada/
+2025-10-04 17:08:08,181 - INFO - Starting scraping for https://www.unicefventurefund.org/apply-funding
+2025-10-04 17:08:08,181 - INFO - Fetching https://www.unicefventurefund.org/apply-funding
+2025-10-04 17:08:11,059 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding
+2025-10-04 17:08:13,604 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-support
+2025-10-04 17:08:15,598 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-support
+2025-10-04 17:08:16,675 - INFO - Fetching https://www.unicefventurefund.org/funding-support
+2025-10-04 17:08:18,275 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support
+2025-10-04 17:08:20,965 - INFO - Fetching https://www.unicefventurefund.org/project_map
+2025-10-04 17:08:23,250 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/project_map
+2025-10-04 17:08:27,138 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-04 17:08:28,577 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-04 17:08:33,277 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-04 17:08:35,194 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-04 17:08:36,614 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-04 17:08:38,198 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-04 17:08:42,693 - INFO - Fetching https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-04 17:08:45,562 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-04 17:08:47,045 - INFO - Fetching https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-04 17:08:48,431 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-04 17:08:49,831 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding
+2025-10-04 17:08:51,628 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding
+2025-10-04 17:08:53,453 - INFO - Starting scraping for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024/
+2025-10-04 17:08:53,453 - INFO - Fetching https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024/
+2025-10-04 17:08:56,504 - INFO - Saved RawOpportunity for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024/
+2025-10-04 18:06:07,031 - INFO - Starting scraping for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-04 18:06:07,032 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-04 18:06:11,821 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-04 18:06:14,756 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lv
+2025-10-04 18:06:18,562 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lv: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=lv
+2025-10-04 18:06:21,499 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru
+2025-10-04 18:06:22,910 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru
+2025-10-04 18:06:26,015 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/monitoring-and-evaluation_en
+2025-10-04 18:06:28,345 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/monitoring-and-evaluation_en
+2025-10-04 18:06:33,160 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ro
+2025-10-04 18:06:36,456 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ro
+2025-10-04 18:06:37,507 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_nl
+2025-10-04 18:06:39,913 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_nl: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=nl
+2025-10-04 18:06:42,823 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/funding-recipients_en
+2025-10-04 18:06:44,777 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/funding-recipients_en
+2025-10-04 18:06:48,314 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_bg
+2025-10-04 18:06:50,983 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_bg
+2025-10-04 18:06:54,061 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_et
+2025-10-04 18:06:57,467 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_et
+2025-10-04 18:07:00,632 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_uk
+2025-10-04 18:07:02,996 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_uk
+2025-10-04 18:07:04,458 - INFO - Starting scraping for https://environment.ec.europa.eu/funding_en
+2025-10-04 18:07:04,458 - INFO - Fetching https://environment.ec.europa.eu/funding_en
+2025-10-04 18:07:07,634 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_en
+2025-10-04 18:07:12,376 - INFO - Fetching https://environment.ec.europa.eu/funding_sl
+2025-10-04 18:07:15,458 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_sl
+2025-10-04 18:07:19,337 - INFO - Fetching https://environment.ec.europa.eu/funding_pl
+2025-10-04 18:07:22,654 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_pl
+2025-10-04 18:07:26,486 - INFO - Fetching https://environment.ec.europa.eu/funding_lt
+2025-10-04 18:07:29,044 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_lt
+2025-10-04 18:07:30,079 - INFO - Fetching https://cinea.ec.europa.eu/news-events/news/green-assist-unlocking-carbon-credits-second-life-battery-projects-2025-06-26_en
+2025-10-04 18:07:33,362 - INFO - Saved RawOpportunity for https://cinea.ec.europa.eu/news-events/news/green-assist-unlocking-carbon-credits-second-life-battery-projects-2025-06-26_en
+2025-10-04 18:07:35,904 - INFO - Fetching https://cinea.ec.europa.eu/news-events/events/info-session-green-assist-eu-advisory-support-projects-towards-water-resilience-2025-05-13_en
+2025-10-04 18:07:39,710 - INFO - Saved RawOpportunity for https://cinea.ec.europa.eu/news-events/events/info-session-green-assist-eu-advisory-support-projects-towards-water-resilience-2025-05-13_en
+2025-10-04 18:07:41,572 - INFO - Fetching https://environment.ec.europa.eu/funding_it
+2025-10-04 18:07:44,395 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_it
+2025-10-04 18:07:48,249 - INFO - Fetching https://environment.ec.europa.eu/funding_hu
+2025-10-04 18:07:51,796 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_hu
+2025-10-04 18:07:53,274 - INFO - Fetching https://environment.ec.europa.eu/funding_ro
+2025-10-04 18:07:56,663 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_ro
+2025-10-04 18:07:58,563 - INFO - Fetching https://environment.ec.europa.eu/funding_fi
+2025-10-04 18:08:01,192 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_fi
+2025-10-04 18:08:04,173 - INFO - Starting scraping for https://www.eif.org
+2025-10-04 18:08:04,173 - INFO - Fetching https://www.eif.org
+2025-10-04 18:08:07,446 - INFO - Saved RawOpportunity for https://www.eif.org
+2025-10-04 18:08:10,680 - INFO - Starting scraping for https://www2.fundsforngos.org
+2025-10-04 18:08:10,680 - INFO - Fetching https://www2.fundsforngos.org
+2025-10-04 18:08:16,582 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org
+2025-10-04 18:08:20,988 - INFO - Starting scraping for https://www.unicefventurefund.org/apply-funding
+2025-10-04 18:08:20,988 - INFO - Fetching https://www.unicefventurefund.org/apply-funding
+2025-10-04 18:08:24,297 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding
+2025-10-04 18:08:26,221 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-04 18:08:29,458 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-04 18:08:32,135 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-04 18:08:33,567 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-04 18:08:38,383 - INFO - Fetching https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-04 18:08:39,901 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-04 18:08:41,334 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-04 18:08:43,087 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-04 18:08:45,995 - INFO - Fetching https://www.unicefventurefund.org/project_map
+2025-10-04 18:08:47,637 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/project_map
+2025-10-04 18:08:50,525 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-support
+2025-10-04 18:08:52,589 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-support
+2025-10-04 18:08:54,963 - INFO - Fetching https://www.unicefventurefund.org/funding-support
+2025-10-04 18:08:57,445 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support
+2025-10-04 18:09:00,392 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding
+2025-10-04 18:09:04,698 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding
+2025-10-04 18:09:09,326 - INFO - Fetching https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-04 18:09:11,902 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-04 18:09:14,145 - INFO - Starting scraping for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-04 18:09:14,145 - INFO - Fetching https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-04 18:09:16,693 - INFO - Saved RawOpportunity for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-04 18:09:19,666 - INFO - Starting scraping for https://www.nsf.gov/oise/international-collaborations
+2025-10-04 18:09:19,666 - INFO - Fetching https://www.nsf.gov/oise/international-collaborations
+2025-10-04 18:09:22,337 - INFO - Saved RawOpportunity for https://www.nsf.gov/oise/international-collaborations
+2025-10-04 18:09:26,187 - INFO - Fetching https://www.nsf.gov/funding/opportunities/m3x-mind-machine-motor-nexus
+2025-10-04 18:09:28,224 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/m3x-mind-machine-motor-nexus
+2025-10-04 18:09:30,142 - INFO - Fetching https://www.nsf.gov/funding/opportunities/hdbe-humans-disasters-built-environment/13353
+2025-10-04 18:09:32,068 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/hdbe-humans-disasters-built-environment/13353
+2025-10-04 18:09:36,611 - INFO - Fetching https://www.nsf.gov/funding/opportunities/science-learning-augmented-intelligence
+2025-10-04 18:09:40,456 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/science-learning-augmented-intelligence
+2025-10-04 18:09:43,603 - INFO - Fetching https://www.nsf.gov/funding/opportunities/dcl-special-guidelines-submitting-collaborative-proposals-under-2
+2025-10-04 18:09:45,638 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/dcl-special-guidelines-submitting-collaborative-proposals-under-2
+2025-10-04 18:09:48,418 - INFO - Fetching https://www.nsf.gov/funding/opportunities/physics-information-frontier-pif
+2025-10-04 18:09:53,771 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/physics-information-frontier-pif
+2025-10-04 18:09:56,293 - INFO - Fetching https://www.nsf.gov/funding/preparing-proposal
+2025-10-04 18:09:58,204 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/preparing-proposal
+2025-10-04 18:10:02,674 - INFO - Fetching https://www.nsf.gov/funding/opportunities/che-drpndp-division-chemistry-disciplinary-research-programs-no
+2025-10-04 18:10:06,857 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/che-drpndp-division-chemistry-disciplinary-research-programs-no
+2025-10-04 18:10:08,140 - INFO - Fetching https://www.nsf.gov/funding/opportunities/cmfp-chemical-mechanism-function-properties
+2025-10-04 18:10:12,079 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/cmfp-chemical-mechanism-function-properties
+2025-10-04 18:10:16,511 - INFO - Fetching https://www.nsf.gov/funding/opportunities/mathematical-biology
+2025-10-04 18:10:18,655 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/mathematical-biology
+2025-10-04 18:10:20,742 - INFO - Starting scraping for https://seed.nih.gov/small-business-funding/find-funding/sbir-sttr-funding-opportunities
+2025-10-04 18:10:20,742 - INFO - Fetching https://seed.nih.gov/small-business-funding/find-funding/sbir-sttr-funding-opportunities
+2025-10-04 18:10:23,789 - INFO - Saved RawOpportunity for https://seed.nih.gov/small-business-funding/find-funding/sbir-sttr-funding-opportunities
+2025-10-04 18:10:26,931 - INFO - Fetching https://seed.nih.gov/small-business-funding/small-business-program-basics/foreign-disclosure-and-risk-management
+2025-10-04 18:10:29,470 - INFO - Saved RawOpportunity for https://seed.nih.gov/small-business-funding/small-business-program-basics/foreign-disclosure-and-risk-management
+2025-10-04 18:10:33,091 - INFO - Fetching https://grants.nih.gov/grants/guide/pa-files/PAR-24-096.html
+2025-10-04 18:10:37,376 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/pa-files/PAR-24-096.html
+2025-10-04 18:10:41,111 - INFO - Fetching https://grants.nih.gov/grants/guide/notice-files/NOT-OD-26-004.html
+2025-10-04 18:10:43,438 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/notice-files/NOT-OD-26-004.html
+2025-10-04 18:10:48,057 - INFO - Fetching https://grants.nih.gov/grants/guide/rfa-files/RFA-TR-23-018.html
+2025-10-04 18:10:50,495 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/rfa-files/RFA-TR-23-018.html
+2025-10-04 18:10:53,338 - INFO - Fetching https://grants.nih.gov/grants/guide/pa-files/PAR-24-066.html
+2025-10-04 18:10:55,712 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/pa-files/PAR-24-066.html
+2025-10-04 18:10:59,271 - INFO - Fetching https://grants.nih.gov/grants/guide/pa-files/PAR-24-044.html
+2025-10-04 18:11:02,734 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/pa-files/PAR-24-044.html
+2025-10-04 18:11:05,650 - INFO - Fetching https://seed.nih.gov/small-business-funding/small-business-program-basics/eligibility-criteria
+2025-10-04 18:11:08,526 - INFO - Saved RawOpportunity for https://seed.nih.gov/small-business-funding/small-business-program-basics/eligibility-criteria
+2025-10-04 18:11:09,795 - INFO - Fetching https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-25-047.html
+2025-10-04 18:11:12,346 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/rfa-files/RFA-DA-25-047.html
+2025-10-04 18:11:17,126 - INFO - Fetching https://grants.nih.gov/grants/guide/pa-files/PAR-24-134.html
+2025-10-04 18:11:19,548 - INFO - Saved RawOpportunity for https://grants.nih.gov/grants/guide/pa-files/PAR-24-134.html
+2025-10-04 18:11:21,342 - INFO - Starting scraping for https://www.csiro.au/en/work-with-us/funding-programs
+2025-10-04 18:11:21,342 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs
+2025-10-04 18:11:27,180 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs
+2025-10-04 18:11:31,760 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs/Innovation-programs-for-large-organisations
+2025-10-04 18:11:37,434 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs/Innovation-programs-for-large-organisations
+2025-10-04 18:11:41,982 - INFO - Fetching https://twitter.com/intent/tweet?text=Currently Reading Funding and programs: (https://www.csiro.au/en/work-with-us/funding-programs)
+2025-10-04 18:11:44,663 - INFO - Saved RawOpportunity for https://twitter.com/intent/tweet?text=Currently Reading Funding and programs: (https://www.csiro.au/en/work-with-us/funding-programs)
+2025-10-04 18:11:45,965 - INFO - Fetching https://www.facebook.com/sharer.php?u=https://www.csiro.au/en/work-with-us/funding-programs&t=Funding and programs
+2025-10-04 18:11:50,669 - INFO - Saved RawOpportunity for https://www.facebook.com/sharer.php?u=https://www.csiro.au/en/work-with-us/funding-programs&t=Funding and programs
+2025-10-04 18:11:52,387 - INFO - Fetching https://www.linkedin.com/shareArticle?mini=true&url=https://www.csiro.au/en/work-with-us/funding-programs&title=Funding and programs&summary=Whether you're a start-up, small or medium sized enterprise or researcher, our programs and funding streams are designed to remove common roadblocks to innovation and progress.
+2025-10-04 18:11:55,335 - INFO - Saved RawOpportunity for https://www.linkedin.com/shareArticle?mini=true&url=https://www.csiro.au/en/work-with-us/funding-programs&title=Funding and programs&summary=Whether you're a start-up, small or medium sized enterprise or researcher, our programs and funding streams are designed to remove common roadblocks to innovation and progress.
+2025-10-04 18:11:59,610 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs/Innovation-programs
+2025-10-04 18:12:08,344 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs/Innovation-programs
+2025-10-04 18:12:12,039 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs/SME
+2025-10-04 18:12:16,461 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs/SME
+2025-10-04 18:12:18,791 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs/SME/Graphite-Research-and-Development-Grant
+2025-10-04 18:12:30,064 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs/SME/Graphite-Research-and-Development-Grant
+2025-10-04 18:12:31,594 - INFO - Fetching mailto:?subject=Check out: Funding and programs&body=Whether you're a start-up, small or medium sized enterprise or researcher, our programs and funding streams are designed to remove common roadblocks to innovation and progress.  -  https://www.csiro.au/en/work-with-us/funding-programs
+2025-10-04 18:12:31,594 - ERROR - Failed to fetch mailto:?subject=Check out: Funding and programs&body=Whether you're a start-up, small or medium sized enterprise or researcher, our programs and funding streams are designed to remove common roadblocks to innovation and progress.  -  https://www.csiro.au/en/work-with-us/funding-programs: No connection adapters were found for "mailto:?subject=Check out: Funding and programs&body=Whether you're a start-up, small or medium sized enterprise or researcher, our programs and funding streams are designed to remove common roadblocks to innovation and progress.  -  https://www.csiro.au/en/work-with-us/funding-programs"
+2025-10-04 18:12:33,235 - INFO - Fetching https://www.csiro.au/en/work-with-us/funding-programs/funding
+2025-10-04 18:12:39,991 - INFO - Saved RawOpportunity for https://www.csiro.au/en/work-with-us/funding-programs/funding
+2025-10-04 18:12:42,591 - INFO - Starting scraping for https://www.gatesfoundation.org/about/how-we-work/grant-opportunities
+2025-10-04 18:12:42,591 - INFO - Fetching https://www.gatesfoundation.org/about/how-we-work/grant-opportunities
+2025-10-04 18:12:46,923 - INFO - Saved RawOpportunity for https://www.gatesfoundation.org/about/how-we-work/grant-opportunities
+2025-10-04 18:12:48,696 - INFO - Fetching https://www.gatesfoundation.org/about/how-we-work/our-commitment-to-grantees
+2025-10-04 18:12:50,926 - INFO - Saved RawOpportunity for https://www.gatesfoundation.org/about/how-we-work/our-commitment-to-grantees
+2025-10-04 18:12:55,703 - INFO - Fetching https://www.gatesfoundation.org/about/how-we-work/grant-applicant-faq
+2025-10-04 18:12:58,309 - INFO - Saved RawOpportunity for https://www.gatesfoundation.org/about/how-we-work/grant-applicant-faq
+2025-10-04 18:13:02,405 - INFO - Fetching https://gcgh.grandchallenges.org/grant-opportunities
+2025-10-04 18:13:04,358 - INFO - Saved RawOpportunity for https://gcgh.grandchallenges.org/grant-opportunities
+2025-10-04 18:13:05,854 - INFO - Fetching https://www.grandchallenges.org/grant-opportunities
+2025-10-04 18:13:07,463 - INFO - Saved RawOpportunity for https://www.grandchallenges.org/grant-opportunities
+2025-10-04 18:13:10,894 - INFO - Fetching https://www.gatesfoundation.org/grant-opportunities
+2025-10-04 18:13:12,704 - ERROR - Failed to fetch https://www.gatesfoundation.org/grant-opportunities: 404 Client Error: Not Found for url: https://www.gatesfoundation.org/grant-opportunities
+2025-10-04 18:13:15,327 - INFO - Fetching https://www.gatesfoundation.org/grants
+2025-10-04 18:13:16,988 - ERROR - Failed to fetch https://www.gatesfoundation.org/grants: 404 Client Error: Not Found for url: https://www.gatesfoundation.org/grants
+2025-10-04 18:13:21,354 - INFO - Fetching https://gcgh.grandchallenges.org/grants/JTdCJTIyc29ydCUyMiUzQSUyMmRlc2NlbmRpbmclMjIlMkMlMjJzb3J0RmllbGQlMjIlM0ElMjJkYXRlJTIyJTJDJTIybnVtYmVyUGVyUGFnZSUyMiUzQTEwMCUyQyUyMnBhZ2VOdW1iZXIlMjIlM0EwJTdE/JTdCJTIyeWVhcnMlMjIlM0ElNUIlNUQlMkMlMjJjaGFsbGVuZ2VzJTIyJTNBJTVCJTVEJTJDJTIydGVybXMlMjIlM0ElNUIlNUQlMkMlMjJpbml0aWF0aXZlcyUyMiUzQSU1QiU1RCUyQyUyMmxvY2F0aW9ucyUyMiUzQSU1QiU1RCU3RA==
+2025-10-04 18:13:24,263 - INFO - Saved RawOpportunity for https://gcgh.grandchallenges.org/grants/JTdCJTIyc29ydCUyMiUzQSUyMmRlc2NlbmRpbmclMjIlMkMlMjJzb3J0RmllbGQlMjIlM0ElMjJkYXRlJTIyJTJDJTIybnVtYmVyUGVyUGFnZSUyMiUzQTEwMCUyQyUyMnBhZ2VOdW1iZXIlMjIlM0EwJTdE/JTdCJTIyeWVhcnMlMjIlM0ElNUIlNUQlMkMlMjJjaGFsbGVuZ2VzJTIyJTNBJTVCJTVEJTJDJTIydGVybXMlMjIlM0ElNUIlNUQlMkMlMjJpbml0aWF0aXZlcyUyMiUzQSU1QiU1RCUyQyUyMmxvY2F0aW9ucyUyMiUzQSU1QiU1RCU3RA==
+2025-10-04 18:13:27,488 - INFO - Fetching http://www.gatesfoundation.org/How-We-Work/General-Information/Grant-Opportunities
+2025-10-04 18:13:31,520 - INFO - Saved RawOpportunity for http://www.gatesfoundation.org/How-We-Work/General-Information/Grant-Opportunities
+2025-10-05 19:02:59,549 - INFO - Starting scraping for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:02:59,549 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:03:02,030 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:03:03,208 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sk
+2025-10-05 19:03:03,960 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sk: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=sk
+2025-10-05 19:03:08,584 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-05 19:03:10,477 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-05 19:03:13,558 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_hu
+2025-10-05 19:03:14,588 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_hu: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=hu
+2025-10-05 19:03:19,105 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lv
+2025-10-05 19:03:21,174 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lv
+2025-10-05 19:03:26,060 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/neighbourhood-development-and-international-cooperation-instrument-global-europe-ndici-global-europe_en
+2025-10-05 19:03:27,589 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/neighbourhood-development-and-international-cooperation-instrument-global-europe-ndici-global-europe_en
+2025-10-05 19:03:29,674 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_pt
+2025-10-05 19:31:11,697 - INFO - Starting scraping for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:31:11,697 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:31:13,945 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-05 19:31:15,370 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
