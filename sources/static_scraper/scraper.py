@@ -1,3 +1,5 @@
+from core.utils import init_django
+init_django()
 import time
 import random
 import requests
@@ -52,6 +54,7 @@ def scrape_static_source(source_registry_entry, max_depth=2, max_pages=10):
             continue
 
         logging.info(f"Fetching {url}")
+        print(f"Fetching {url}")
         html = fetch_html(url)
         visited.add(url)
 
@@ -64,7 +67,7 @@ def scrape_static_source(source_registry_entry, max_depth=2, max_pages=10):
                 raw_content=html
             )
             logging.info(f"Saved RawOpportunity for {url}")
-
+            print(f"Saved RawOpportunity for {url}")
             # Extract candidate links for further crawling
             if depth < max_depth:
                 candidate_links = extract_candidate_links(base_url, html)
@@ -79,6 +82,7 @@ def run_scraper():
     sources = SourceRegistry.objects.filter(active=True, source_type="google")
     for source in sources:
         logging.info(f"Starting scraping for {source.base_url}")
+        print(f"Starting scraping for {source.base_url}")
         scrape_static_source(source)
 
 if __name__ == "__main__":

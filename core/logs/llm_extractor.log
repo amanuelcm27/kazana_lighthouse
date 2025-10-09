@@ -1,0 +1,12 @@
+2025-10-09 23:27:33,153 - INFO - Starting extraction for 3 pending items...
+2025-10-09 23:27:41,357 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-09 23:27:41,364 - INFO - \U0001f5d1\ufe0f Marked as garbage: https://www.ifc.org
+2025-10-09 23:27:52,550 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-09 23:27:52,557 - INFO - \u2705 Processed successfully: https://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-09 23:28:09,765 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-09 23:28:09,781 - INFO - \u2705 Processed successfully: https://www.ifc.org/ko/what-we-do/products-and-services/how-to-apply-for-financing
+2025-10-09 23:28:09,781 - INFO - \u2705 Extraction batch completed.
+2025-10-09 23:39:22,776 - INFO - Starting extraction for 1 pending items...
+2025-10-09 23:40:04,278 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-09 23:40:04,328 - INFO - Processed successfully: mailto:?body=IFC offers a wide variety of financial products for private sector projects in developing countries.%0Dhttps://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing&subject=How to Apply for Financing | International Finance Corporation (IFC)
+2025-10-09 23:40:04,328 - INFO - Extraction batch completed.

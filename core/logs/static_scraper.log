@@ -239,3 +239,112 @@
 2025-10-05 19:31:11,697 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
 2025-10-05 19:31:13,945 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
 2025-10-05 19:31:15,370 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-08 11:00:25,578 - INFO - Starting scraping for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:00:25,578 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:00:27,883 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:00:32,083 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_bg
+2025-10-08 11:00:33,258 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_bg: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=bg
+2025-10-08 11:00:34,632 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_fr
+2025-10-08 11:00:36,934 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_fr
+2025-10-08 11:00:39,221 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru
+2025-10-08 11:00:39,998 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ru
+2025-10-08 11:00:41,507 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_pl
+2025-10-08 11:00:42,199 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_pl: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_pl
+2025-10-08 11:00:45,938 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_el
+2025-10-08 11:00:48,190 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_el
+2025-10-08 11:00:51,575 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sl
+2025-10-08 11:00:54,508 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sl
+2025-10-08 11:00:59,485 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_de
+2025-10-08 11:01:02,128 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_de
+2025-10-08 11:01:03,807 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_hu
+2025-10-08 11:01:06,846 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_hu
+2025-10-08 11:01:09,019 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ga
+2025-10-08 11:01:12,418 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ga
+2025-10-08 11:01:15,581 - INFO - Starting scraping for https://environment.ec.europa.eu/funding_en
+2025-10-08 11:01:15,581 - INFO - Fetching https://environment.ec.europa.eu/funding_en
+2025-10-08 11:01:18,200 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_en
+2025-10-08 11:01:22,748 - INFO - Fetching https://environment.ec.europa.eu/funding_ro
+2025-10-08 11:01:25,932 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_ro
+2025-10-08 11:01:30,456 - INFO - Fetching https://environment.ec.europa.eu/funding_pl
+2025-10-08 11:01:33,707 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_pl
+2025-10-08 11:01:41,214 - INFO - Starting scraping for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:01:41,214 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:01:44,516 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-08 11:01:47,818 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/fraud-prevention-enlargement-and-eastern-neighbourhood_en
+2025-10-08 11:01:49,670 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/fraud-prevention-enlargement-and-eastern-neighbourhood_en
+2025-10-08 11:01:52,210 - INFO - Fetching https://ec.europa.eu/neighbourhood-enlargement/funding-and-technical-assistance/neighbourhood-development-and-international-cooperation-instrument_en
+2025-10-08 11:01:54,602 - INFO - Saved RawOpportunity for https://ec.europa.eu/neighbourhood-enlargement/funding-and-technical-assistance/neighbourhood-development-and-international-cooperation-instrument_en
+2025-10-08 11:01:55,721 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_it
+2025-10-08 11:01:56,604 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_it: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=it
+2025-10-08 11:02:01,158 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lt
+2025-10-08 11:02:02,120 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lt: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=lt
+2025-10-08 11:02:06,822 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sk
+2025-10-08 11:02:07,851 - ERROR - Failed to fetch https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_sk: 429 Client Error: Too Many Requests for url: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en?prefLang=sk
+2025-10-08 11:02:10,669 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/grants-and-tenders_en
+2025-10-08 11:02:12,045 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/grants-and-tenders_en
+2025-10-08 11:02:13,981 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/ukraine-facility_en
+2025-10-08 11:02:15,718 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/ukraine-facility_en
+2025-10-08 11:02:19,931 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-08 11:02:22,054 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-08 11:02:23,537 - INFO - Fetching https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ga
+2025-10-08 11:02:24,989 - INFO - Saved RawOpportunity for https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_ga
+2025-10-08 11:02:26,411 - INFO - Starting scraping for https://environment.ec.europa.eu/funding_en
+2025-10-08 11:02:26,411 - INFO - Fetching https://environment.ec.europa.eu/funding_en
+2025-10-08 11:02:27,812 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_en
+2025-10-08 11:02:32,519 - INFO - Fetching https://ec.europa.eu/environment/funding/cei_lc_en.htm
+2025-10-08 11:02:34,989 - INFO - Saved RawOpportunity for https://ec.europa.eu/environment/funding/cei_lc_en.htm
+2025-10-08 11:02:39,465 - INFO - Fetching https://environment.ec.europa.eu/funding_bg
+2025-10-08 11:02:41,974 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_bg
+2025-10-08 11:02:44,477 - INFO - Fetching https://ec.europa.eu/info/funding-tenders/find-funding/eu-funding-programmes_en
+2025-10-08 11:02:46,865 - INFO - Saved RawOpportunity for https://ec.europa.eu/info/funding-tenders/find-funding/eu-funding-programmes_en
+2025-10-08 11:02:50,217 - INFO - Fetching https://environment.ec.europa.eu/funding_cs
+2025-10-08 11:02:53,248 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_cs
+2025-10-08 11:02:56,452 - INFO - Fetching https://environment.ec.europa.eu/funding/calls-tenders-2022_en
+2025-10-08 11:02:58,654 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding/calls-tenders-2022_en
+2025-10-08 11:03:03,355 - INFO - Fetching https://environment.ec.europa.eu/funding_sl
+2025-10-08 11:03:06,075 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_sl
+2025-10-08 11:03:07,657 - INFO - Fetching https://environment.ec.europa.eu/funding_ga
+2025-10-08 11:03:10,412 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_ga
+2025-10-08 11:03:14,284 - INFO - Fetching https://environment.ec.europa.eu/funding_es
+2025-10-08 11:03:17,251 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_es
+2025-10-08 11:03:22,053 - INFO - Fetching https://environment.ec.europa.eu/funding_hu
+2025-10-08 11:03:24,779 - INFO - Saved RawOpportunity for https://environment.ec.europa.eu/funding_hu
+2025-10-08 11:03:26,439 - INFO - Starting scraping for https://www.eif.org
+2025-10-08 11:03:26,440 - INFO - Fetching https://www.eif.org
+2025-10-08 11:03:29,721 - INFO - Saved RawOpportunity for https://www.eif.org
+2025-10-08 11:03:31,951 - INFO - Starting scraping for https://www2.fundsforngos.org
+2025-10-08 11:03:31,951 - INFO - Fetching https://www2.fundsforngos.org
+2025-10-08 11:03:33,802 - INFO - Saved RawOpportunity for https://www2.fundsforngos.org
+2025-10-08 11:03:37,404 - INFO - Starting scraping for https://www.unicefventurefund.org/apply-funding
+2025-10-08 11:03:37,404 - INFO - Fetching https://www.unicefventurefund.org/apply-funding
+2025-10-08 11:03:40,981 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding
+2025-10-08 11:03:43,920 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-08 11:03:45,596 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#track-funds
+2025-10-08 11:03:50,169 - INFO - Fetching https://www.unicefventurefund.org/funding-support
+2025-10-08 11:03:51,939 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support
+2025-10-08 11:03:53,956 - INFO - Fetching https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-08 11:03:56,285 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/call/funding-opportunity-fem-tech-solutions
+2025-10-08 11:03:59,564 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-08 11:04:01,149 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding#crypto-funding
+2025-10-08 11:04:04,142 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-support
+2025-10-08 11:04:06,362 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-support
+2025-10-08 11:04:10,434 - INFO - Fetching https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-08 11:04:11,845 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/funding-support#our-funding
+2025-10-08 11:04:15,663 - INFO - Fetching https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-08 11:04:19,831 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding#crypto-funding
+2025-10-08 11:04:21,470 - INFO - Fetching https://www.unicefventurefund.org/apply-funding#our-funding
+2025-10-08 11:04:23,922 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/apply-funding#our-funding
+2025-10-08 11:04:26,679 - INFO - Fetching https://www.unicefventurefund.org/crypto-funding
+2025-10-08 11:04:28,941 - INFO - Saved RawOpportunity for https://www.unicefventurefund.org/crypto-funding
+2025-10-08 11:04:30,630 - INFO - Starting scraping for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-08 11:04:30,630 - INFO - Fetching https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-08 11:04:33,846 - INFO - Saved RawOpportunity for https://eufundingportal.eu/call-for-expressions-of-interest-new-european-bauhaus-mentors-2024
+2025-10-08 11:04:36,543 - INFO - Starting scraping for https://www.nsf.gov/oise/international-collaborations
+2025-10-08 11:04:36,543 - INFO - Fetching https://www.nsf.gov/oise/international-collaborations
+2025-10-08 11:04:38,494 - INFO - Saved RawOpportunity for https://www.nsf.gov/oise/international-collaborations
+2025-10-08 11:04:40,699 - INFO - Fetching https://www.nsf.gov/funding/opportunities/dcl-nsf-ukriepsrc-lead-agency-opportunity-understanding
+2025-10-08 11:04:42,343 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/dcl-nsf-ukriepsrc-lead-agency-opportunity-understanding
+2025-10-08 11:04:46,617 - INFO - Fetching https://www.nsf.gov/funding/opportunities/applied-mathematics
+2025-10-08 11:04:48,482 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/applied-mathematics
+2025-10-08 11:04:52,050 - INFO - Fetching https://www.nsf.gov/funding/opportunities
+2025-10-08 11:04:57,688 - INFO - Fetching https://www.nsf.gov/funding/opportunities/arch-sr-archaeology-program-senior-research-awards
