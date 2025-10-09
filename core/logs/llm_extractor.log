@@ -10,3 +10,46 @@
 2025-10-09 23:40:04,278 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-10-09 23:40:04,328 - INFO - Processed successfully: mailto:?body=IFC offers a wide variety of financial products for private sector projects in developing countries.%0Dhttps://www.ifc.org/en/what-we-do/products-and-services/how-to-apply-for-financing&subject=How to Apply for Financing | International Finance Corporation (IFC)
 2025-10-09 23:40:04,328 - INFO - Extraction batch completed.
+2025-10-09 23:55:32,598 - INFO - Starting extraction for 1 pending items...
+2025-10-09 23:55:40,317 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-09 23:55:40,328 - INFO - Marked as garbage: https://www.ifc.org/en/what-we-do/products-and-services/ifc-project-cycle
+2025-10-09 23:55:40,328 - INFO - Extraction batch completed.
+2025-10-10 00:05:50,495 - INFO - Starting extraction for 10 pending items...
+2025-10-10 00:05:55,330 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:05:55,353 - INFO - Marked as garbage: https://www.afdb.org
+2025-10-10 00:05:57,599 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:05:57,614 - INFO - Marked as garbage: https://www.giz.de
+2025-10-10 00:06:06,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:06,953 - INFO - Processed successfully: https://www.openvc.app
+2025-10-10 00:06:11,812 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:11,835 - INFO - Marked as garbage: https://techfundingnews.com/welsh-startup-laennec-ai-bags-375k-to-turn-smartphones-into-digital-stethoscopes/
+2025-10-10 00:06:15,938 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:15,953 - INFO - Marked as garbage: https://techfundingnews.com/tag/x/
+2025-10-10 00:06:20,504 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:20,518 - INFO - Marked as garbage: https://techfundingnews.com/category/europe/
+2025-10-10 00:06:26,709 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:26,712 - INFO - Marked as garbage: https://techfundingnews.com/category/vc/
+2025-10-10 00:06:30,813 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:30,827 - INFO - Marked as garbage: https://techfundingnews.com/category/asia/
+2025-10-10 00:06:35,468 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:35,483 - INFO - Marked as garbage: https://techfundingnews.com/tag/workertech/
+2025-10-10 00:06:42,198 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:06:42,212 - INFO - Marked as garbage: https://techfundingnews.com/category/ecommerce/
+2025-10-10 00:06:42,212 - INFO - Extraction batch completed.
+2025-10-10 00:17:13,984 - INFO - Starting extraction for 3 pending items...
+2025-10-10 00:17:22,506 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:17:22,531 - INFO - Marked as garbage: https://techfundingnews.com/tag/funding/
+2025-10-10 00:17:28,663 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:17:28,668 - INFO - Marked as garbage: https://techfundingnews.com/terms-of-use/
+2025-10-10 00:17:44,351 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:17:44,351 - INFO - Processed successfully: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-10-10 00:17:44,351 - INFO - Extraction batch completed.
+2025-10-10 00:19:48,271 - INFO - Starting extraction for 3 pending items...
+2025-10-10 00:20:00,804 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:20:00,823 - INFO - Processed successfully: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities_en
+2025-10-10 00:20:12,468 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:20:12,485 - INFO - Processed successfully: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_lv
+2025-10-10 00:20:15,717 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 00:20:15,721 - INFO - Marked as garbage: https://enlargement.ec.europa.eu/funding-technical-assistance/neighbourhood-development-and-international-cooperation-instrument-global-europe-ndici-global-europe_en
+2025-10-10 00:20:15,721 - INFO - Extraction batch completed.
+2025-10-10 00:20:44,188 - INFO - No pending items to process.

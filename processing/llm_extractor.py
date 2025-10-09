@@ -17,17 +17,19 @@ logging.basicConfig(
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 EXTRACTION_PROMPT = """
+
 You are an expert opportunity classifier and structured information extractor.
 
 Task:
 1. Read the provided text carefully.
-2. Determine if the text genuinely describes a *funding, grant, project, competition, expression of interest  or contract opportunity*.
-3. If it does, extract and return a structured JSON object.
-4. If it does NOT contain any meaningful opportunity, return this exact JSON:
-
-{"is_opportunity": false}
-
-If it DOES contain an opportunity, return JSON in the following format:
+2. Determine if the text is written primarily in English. 
+   - If it is NOT in English, return this exact JSON: {"is_opportunity": false}
+3. If the text is in English, determine if it explicitly and genuinely describes a *funding, grant, project, competition, expression of interest, or contract opportunity*. 
+   - Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity are NOT valid.
+   - The content must clearly state at least one specific opportunity or call for application.
+4. If no meaningful opportunity is found, return this exact JSON:
+   {"is_opportunity": false}
+5. If a real opportunity is identified, extract and return a structured JSON object in this format:
 
 {
   "is_opportunity": true,
@@ -43,7 +45,10 @@ If it DOES contain an opportunity, return JSON in the following format:
   "confidence_score": 0.0
 }
 
-Return ONLY valid JSON. No explanations, no comments, no markdown.
+Rules:
+- Always return ONLY valid JSON (no markdown or comments).
+- If the source text does not contain a valid opportunity, return {"is_opportunity": false}.
+
 """
 
 def extract_opportunity_data(cleaned_opportunity):
@@ -57,7 +62,7 @@ def extract_opportunity_data(cleaned_opportunity):
                 {"role": "user", "content": cleaned_opportunity.cleaned_content},
             ],
         )
-        print(response)
+
         message = response.choices[0].message
         if message is None or not message.content:
             raise ValueError("Empty model response")
@@ -102,7 +107,7 @@ def extract_opportunity_data(cleaned_opportunity):
 
 # --- Batch Processing ---
 def run_extraction():
-    pending_items = CleanedOpportunity.objects.filter(status="pending")[:1]
+    pending_items = CleanedOpportunity.objects.filter(status="pending")[:3]
     if not pending_items.exists():
         logging.info("No pending items to process.")
         return
