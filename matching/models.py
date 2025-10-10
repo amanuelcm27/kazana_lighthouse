@@ -33,7 +33,7 @@ class OpportunityMatch(models.Model):
         choices=[("pending", "Pending"), ("accepted", "Accepted"), ("rejected", "Rejected")],
         default="pending"
     )
-    
+    justification = models.TextField(blank=True, null=True)  # LLM explanation for the match
     matched_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

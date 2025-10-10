@@ -1,0 +1,146 @@
+2025-10-10 17:28:42,135 - INFO -  Starting matching for 6 processed opportunities.
+2025-10-10 17:28:42,139 - INFO - Matching opportunity: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova
+2025-10-10 17:28:47,441 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:28:47,464 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Jemla
+2025-10-10 17:28:53,646 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:28:53,647 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 251 Communications
+2025-10-10 17:29:01,493 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:01,496 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Zare Innovations
+2025-10-10 17:29:10,245 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:10,246 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Pragma Investment Advisory
+2025-10-10 17:29:16,010 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:16,011 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Capital Business School
+2025-10-10 17:29:22,228 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:22,230 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
+2025-10-10 17:29:22,230 - INFO - Matching opportunity: How to Apply for Financing
+2025-10-10 17:29:30,227 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:30,251 - INFO - Matched: How to Apply for Financing \u2192 Jemla (0.85)
+2025-10-10 17:29:38,630 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:38,635 - INFO - Matched: How to Apply for Financing \u2192 251 Communications (0.8)
+2025-10-10 17:29:46,500 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:29:46,516 - INFO - Matched: How to Apply for Financing \u2192 Zare Innovations (0.82)
+2025-10-10 17:30:00,587 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:00,588 - INFO - No match: How to Apply for Financing \u2192 Pragma Investment Advisory
+2025-10-10 17:30:30,324 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:30,329 - INFO - Matched: How to Apply for Financing \u2192 Capital Business School (0.82)
+2025-10-10 17:30:37,906 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:37,921 - INFO - Matched: How to Apply for Financing \u2192 Smilepay (0.85)
+2025-10-10 17:30:37,922 - INFO - Matching opportunity: OpenVC: Find investors for your startup — raise for free
+2025-10-10 17:30:43,006 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:43,021 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Jemla (0.82)
+2025-10-10 17:30:51,484 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:51,485 - INFO - No match: OpenVC: Find investors for your startup — raise for free \u2192 251 Communications
+2025-10-10 17:30:59,935 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:30:59,938 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Zare Innovations (0.8)
+2025-10-10 17:31:08,579 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 17:31:08,580 - INFO - No match: OpenVC: Find investors for your startup — raise for free \u2192 Pragma Investment Advisory
+2025-10-10 18:17:18,833 - INFO -  Starting matching for 6 processed opportunities.
+2025-10-10 18:17:18,873 - INFO - Matching opportunity: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova
+2025-10-10 18:17:24,978 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:24,985 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Jemla
+2025-10-10 18:17:30,829 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:30,830 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 251 Communications
+2025-10-10 18:17:36,861 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:36,861 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Zare Innovations
+2025-10-10 18:17:43,658 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:43,658 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Pragma Investment Advisory
+2025-10-10 18:17:48,863 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:48,864 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Capital Business School
+2025-10-10 18:17:52,990 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:52,991 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
+2025-10-10 18:17:52,991 - INFO - Matching opportunity: How to Apply for Financing
+2025-10-10 18:17:59,498 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:17:59,508 - INFO - Matched: How to Apply for Financing \u2192 Jemla (0.85)
+2025-10-10 18:18:10,561 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:10,578 - INFO - Matched: How to Apply for Financing \u2192 251 Communications (0.8)
+2025-10-10 18:18:17,598 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:17,614 - INFO - Matched: How to Apply for Financing \u2192 Zare Innovations (0.8)
+2025-10-10 18:18:28,284 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:28,298 - INFO - Matched: How to Apply for Financing \u2192 Pragma Investment Advisory (0.85)
+2025-10-10 18:18:35,932 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:35,936 - INFO - Matched: How to Apply for Financing \u2192 Capital Business School (0.78)
+2025-10-10 18:18:43,566 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:43,572 - INFO - Matched: How to Apply for Financing \u2192 Smilepay (0.78)
+2025-10-10 18:18:43,572 - INFO - Matching opportunity: OpenVC: Find investors for your startup — raise for free
+2025-10-10 18:18:49,602 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:18:49,619 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Jemla (0.85)
+2025-10-10 18:40:49,861 - INFO -  Starting matching for 6 processed opportunities.
+2025-10-10 18:40:49,863 - INFO - Matching opportunity: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova
+2025-10-10 18:40:56,391 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:40:56,398 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Jemla
+2025-10-10 18:41:00,700 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:00,701 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 251 Communications
+2025-10-10 18:41:07,422 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:07,422 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Zare Innovations
+2025-10-10 18:41:13,375 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:13,376 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Pragma Investment Advisory
+2025-10-10 18:41:18,648 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:18,649 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Capital Business School
+2025-10-10 18:41:23,527 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:23,529 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
+2025-10-10 18:41:23,530 - INFO - Matching opportunity: How to Apply for Financing
+2025-10-10 18:41:33,356 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:33,372 - INFO - Matched: How to Apply for Financing \u2192 Jemla (0.84)
+2025-10-10 18:41:44,013 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:44,014 - INFO - No match: How to Apply for Financing \u2192 251 Communications
+2025-10-10 18:41:57,161 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:41:57,166 - INFO - Matched: How to Apply for Financing \u2192 Zare Innovations (0.78)
+2025-10-10 18:42:08,676 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:08,692 - INFO - Matched: How to Apply for Financing \u2192 Pragma Investment Advisory (0.82)
+2025-10-10 18:42:18,637 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:18,642 - INFO - Matched: How to Apply for Financing \u2192 Capital Business School (0.82)
+2025-10-10 18:42:27,072 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:27,087 - INFO - Matched: How to Apply for Financing \u2192 Smilepay (0.85)
+2025-10-10 18:42:27,087 - INFO - Matching opportunity: OpenVC: Find investors for your startup — raise for free
+2025-10-10 18:42:32,850 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:32,853 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Jemla (0.85)
+2025-10-10 18:42:39,585 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:39,586 - INFO - No match: OpenVC: Find investors for your startup — raise for free \u2192 251 Communications
+2025-10-10 18:42:49,980 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:49,995 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Zare Innovations (0.82)
+2025-10-10 18:42:59,818 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:42:59,819 - INFO - No match: OpenVC: Find investors for your startup — raise for free \u2192 Pragma Investment Advisory
+2025-10-10 18:43:06,953 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:06,968 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Capital Business School (0.82)
+2025-10-10 18:43:13,915 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:13,919 - INFO - Matched: OpenVC: Find investors for your startup — raise for free \u2192 Smilepay (0.82)
+2025-10-10 18:43:13,919 - INFO - Matching opportunity: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova
+2025-10-10 18:43:18,940 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:18,942 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Jemla
+2025-10-10 18:43:25,481 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:25,482 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 251 Communications
+2025-10-10 18:43:31,966 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:31,967 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Zare Innovations
+2025-10-10 18:43:37,617 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:37,619 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Pragma Investment Advisory
+2025-10-10 18:43:44,736 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:44,736 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Capital Business School
+2025-10-10 18:43:52,247 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:52,249 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
+2025-10-10 18:43:52,249 - INFO - Matching opportunity: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction
+2025-10-10 18:43:56,876 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:43:56,876 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 Jemla
+2025-10-10 18:44:01,655 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:01,656 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 251 Communications
+2025-10-10 18:44:10,196 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:10,197 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 Zare Innovations
+2025-10-10 18:44:15,412 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:15,413 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 Pragma Investment Advisory
+2025-10-10 18:44:21,538 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:21,540 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 Capital Business School
+2025-10-10 18:44:26,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:26,152 - INFO - No match: Second Call for Expressions of Interest to mobilise private investments for Ukraine’s recovery and reconstruction \u2192 Smilepay
+2025-10-10 18:44:26,153 - INFO - Matching opportunity: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova
+2025-10-10 18:44:31,022 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:31,024 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Jemla
+2025-10-10 18:44:36,657 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:36,658 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 251 Communications
+2025-10-10 18:44:43,623 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:43,623 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Zare Innovations
+2025-10-10 18:44:49,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:49,153 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Pragma Investment Advisory
+2025-10-10 18:44:54,951 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:44:54,952 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Capital Business School
+2025-10-10 18:45:00,000 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-10 18:45:00,000 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
+2025-10-10 18:45:00,000 - INFO -  Matching process completed.

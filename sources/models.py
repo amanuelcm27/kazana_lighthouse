@@ -24,7 +24,7 @@ class RawOpportunity(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
     
     def __str__(self):
-        return f"{self.source_name} | {self.source_type} | fetched {self.fetched_at}"
+        return f"{self.source_name} | {self.source_type} | status {self.status}"
 
 
 
