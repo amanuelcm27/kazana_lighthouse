@@ -15,7 +15,6 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-# Central recipient email (set in Django settings or .env)
 CENTRAL_EMAIL = getattr(settings, "CENTRAL_NOTIFICATION_EMAIL", os.getenv("CENTRAL_NOTIFICATION_EMAIL"))
 DEFAULT_FROM_EMAIL = getattr(settings, "DEFAULT_FROM_EMAIL", "no-reply@kazana.ai")
 

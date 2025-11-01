@@ -44,4 +44,5 @@ class OpportunityMatch(models.Model):
     mailed_at = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.opportunity.title} → {self.startup.name}"
+        return f"{self.opportunity.title} → {self.startup.name} -> {self.mailed_at or 'Not Mailed'}"
+ 
