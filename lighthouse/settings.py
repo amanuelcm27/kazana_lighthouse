@@ -135,3 +135,11 @@ CELERY_TASK_ACKS_LATE = True
 CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
 CELERY_TASK_SOFT_TIME_LIMIT = 540
 
+from datetime import timedelta
+CELERY_BEAT_SCHEDULE = {
+    "run_static_scraper_daily": {
+        "task": "sources.tasks.run_static_scraper_task",
+        "schedule": timedelta(minutes=5),
+    },
+
+}

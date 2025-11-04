@@ -348,3 +348,109 @@
 2025-10-08 11:04:48,482 - INFO - Saved RawOpportunity for https://www.nsf.gov/funding/opportunities/applied-mathematics
 2025-10-08 11:04:52,050 - INFO - Fetching https://www.nsf.gov/funding/opportunities
 2025-10-08 11:04:57,688 - INFO - Fetching https://www.nsf.gov/funding/opportunities/arch-sr-archaeology-program-senior-research-awards
+2025-11-04 21:41:46,777 - INFO - Watching for file changes with StatReloader
+2025-11-04 21:42:00,707 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-04 21:42:02,921 - INFO - Watching for file changes with StatReloader
+2025-11-04 21:42:06,403 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\celery.py changed, reloading.
+2025-11-04 21:42:08,368 - INFO - Watching for file changes with StatReloader
+2025-11-04 21:42:12,083 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\celery.py changed, reloading.
+2025-11-04 21:42:13,876 - INFO - Watching for file changes with StatReloader
+2025-11-04 21:42:52,475 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\celery.py changed, reloading.
+2025-11-04 21:42:54,433 - INFO - Watching for file changes with StatReloader
+2025-11-04 21:42:57,903 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-04 21:47:56,541 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 21:47:56,556 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 21:47:56,560 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.static_scraper.tasks.run_static_scraper_task']
+2025-11-04 21:47:56,569 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 21:48:07,689 - WARNING - 404 GET /task/bea9915d-7ed6-4870-b650-5b9c1f8edeb9 (::1): Unknown task 'bea9915d-7ed6-4870-b650-5b9c1f8edeb9'
+2025-11-04 22:00:26,894 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 22:00:26,914 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 22:00:26,919 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.static_scraper.tasks.run_static_scraper_task']
+2025-11-04 22:00:26,930 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 22:20:57,377 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 22:20:57,403 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 22:20:57,408 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.tasks.run_static_scraper_task']
+2025-11-04 22:20:57,423 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 22:32:36,336 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 22:32:36,365 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 22:32:36,371 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.tasks.run_static_scraper_task']
+2025-11-04 22:32:36,394 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 22:35:02,886 - INFO - Watching for file changes with StatReloader
+2025-11-04 22:35:07,097 - WARNING - Not Found: /favicon.ico
+2025-11-04 22:35:14,912 - WARNING - Not Found: /favicon.ico
+2025-11-04 22:45:23,821 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 22:45:23,847 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 22:45:23,854 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.tasks.run_static_scraper_task']
+2025-11-04 22:45:23,868 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 22:46:35,987 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-04 22:46:38,294 - INFO - Watching for file changes with StatReloader
+2025-11-04 22:47:40,841 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-04 22:47:43,031 - INFO - Watching for file changes with StatReloader
+2025-11-04 22:48:24,305 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\static_scraper\scraper.py changed, reloading.
+2025-11-04 22:48:26,488 - INFO - Watching for file changes with StatReloader
+2025-11-04 22:49:12,036 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-04 22:52:25,045 - INFO - Visit me at http://0.0.0.0:5555
+2025-11-04 22:52:25,072 - INFO - Broker: redis://localhost:6379/0
+2025-11-04 22:52:25,084 - INFO - Registered tasks: 
+['celery.accumulate',
+ 'celery.backend_cleanup',
+ 'celery.chain',
+ 'celery.chord',
+ 'celery.chord_unlock',
+ 'celery.chunks',
+ 'celery.group',
+ 'celery.map',
+ 'celery.starmap',
+ 'sources.tasks.run_static_scraper_task']
+2025-11-04 22:52:25,106 - INFO - Connected to redis://localhost:6379/0
+2025-11-04 22:54:42,668 - INFO - Watching for file changes with StatReloader
