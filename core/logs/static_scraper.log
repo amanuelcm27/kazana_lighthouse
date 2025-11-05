@@ -520,3 +520,4 @@
 2025-11-05 15:57:13,545 - INFO - Watching for file changes with StatReloader
 Found 10 static sources to scrape.
 Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-11-05 22:01:38,753 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.

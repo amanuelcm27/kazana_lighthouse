@@ -40,6 +40,7 @@ class SourceRegistry(models.Model):
     ]
     name = models.CharField(max_length=255)         
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
+    search_term = models.CharField(max_length=255, blank=True, null=True)
     base_url = models.URLField()
     active = models.BooleanField(default=True)       
     web_type = models.CharField(max_length=20, choices=WEB_TYPES, default='static')

@@ -9,7 +9,7 @@ from django.core.cache import cache
 from openai import OpenAI
 import json
 import os
-
+import re
 
 
 static_logger = logging.getLogger("static_scraper")
@@ -75,19 +75,20 @@ def collect_links_via_google_api_task():
     queries = cache.get("google_queries_pool", [])
     if not queries:
         google_logger.warning("No query pool found. Generating fallback query.")
-        refresh_google_queries_task.delay() # refresh queries initially ...
+        refresh_google_queries_task.delay()  # refresh queries initially ...
         queries = ["latest startup grants and funding opportunities 2025"]
 
     # Use round-robin selection
     index = cache.get("google_query_index", 0)
     query = queries[index % len(queries)]
-    cache.set("google_query_index", (index + 1) % len(queries), timeout=60 * 60 * 24)
+    cache.set("google_query_index", (index + 1) %
+              len(queries), timeout=60 * 60 * 24)
 
     results = google_search(query, num_results=10)
-    save_to_registry(results)
-    google_logger.info(f"Used query '{query}' → collected {len(results)} links.")
+    save_to_registry(results , query)
+    google_logger.info(
+        f"Used query '{query}' → collected {len(results)} links.")
     return f"Collected {len(results)} links from query '{query}'."
-
 
 
 @shared_task
@@ -101,19 +102,26 @@ def refresh_google_queries_task():
     - innovation challenges
     - tenders
     - project opportunities
-    Make them globally relevant and vary by region, sector, and funding type.
-    Output them as a JSON list of 24 strings.
+    Make them globally relevant and any sector or funding type.
+    Output ONLY a JSON array of 24 strings (no extra text).
     """
 
     response = client.chat.completions.create(
         model="gpt-5-nano",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=500,
     )
 
     try:
-        queries = json.loads(response.choices[0].message["content"])
-        cache.set("google_queries_pool", queries, timeout=60 * 60 * 6)  # 6 hours
+        message = response.choices[0].message
+        print(f'gpt response {message}')
+        content = message.content.strip()
+        match = re.search(r"\[.*\]", content, re.DOTALL)
+        if not match:
+            raise ValueError("No JSON array found in GPT response")
+
+        queries = json.loads(match.group())
+        cache.set("google_queries_pool", queries,
+                  timeout=60 * 60 * 6)  # 6 hours
         return f"Generated {len(queries)} new queries."
     except Exception as e:
         google_logger.error(f"Failed to parse GPT response: {e}")

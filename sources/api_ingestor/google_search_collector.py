@@ -46,7 +46,7 @@ def google_search(query, num_results=10):
         return []
 
 
-def save_to_registry(results):
+def save_to_registry(results , search_term):
     """Insert into DB if new."""
     for item in results:
         link = normalize_url(item.get("link", ""))
@@ -57,6 +57,7 @@ def save_to_registry(results):
             SourceRegistry.objects.create(
                 name=name,
                 source_type="google",
+                search_term = search_term,
                 base_url=link,
                 active=True
             )
@@ -68,7 +69,7 @@ def save_to_registry(results):
 def main():
     query = "Startup grants, funding opportunities, projects, expressions of interest for startups"
     results = google_search(query, num_results=10)
-    save_to_registry(results)
+    save_to_registry(results , query)
     logging.info("Source registry updated successfully.")
 
 
