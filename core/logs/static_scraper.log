@@ -454,3 +454,69 @@
  'sources.tasks.run_static_scraper_task']
 2025-11-04 22:52:25,106 - INFO - Connected to redis://localhost:6379/0
 2025-11-04 22:54:42,668 - INFO - Watching for file changes with StatReloader
+2025-11-04 23:25:01,644 - ERROR - Failed to capture events: 'Error while reading from localhost:6379 : (10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)', trying again in 1 seconds.
+2025-11-04 23:25:06,728 - ERROR - Failed to capture events: 'Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.', trying again in 2 seconds.
+2025-11-04 23:25:12,822 - ERROR - Failed to capture events: 'Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.', trying again in 4 seconds.
+2025-11-04 23:25:20,911 - ERROR - Failed to capture events: 'Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.', trying again in 8 seconds.
+2025-11-05 12:44:17,304 - ERROR - Connection to Redis lost: Retry (0/20) now.
+2025-11-05 12:44:21,354 - ERROR - Connection to Redis lost: Retry (1/20) in 1.00 second.
+2025-11-05 12:44:26,439 - ERROR - Connection to Redis lost: Retry (2/20) in 1.00 second.
+2025-11-05 12:44:31,512 - ERROR - Connection to Redis lost: Retry (3/20) in 1.00 second.
+2025-11-05 12:44:36,597 - ERROR - Connection to Redis lost: Retry (4/20) in 1.00 second.
+2025-11-05 12:44:41,682 - ERROR - Connection to Redis lost: Retry (5/20) in 1.00 second.
+2025-11-05 12:44:46,728 - ERROR - Connection to Redis lost: Retry (6/20) in 1.00 second.
+2025-11-05 12:44:51,799 - ERROR - Connection to Redis lost: Retry (7/20) in 1.00 second.
+2025-11-05 12:44:56,867 - ERROR - Connection to Redis lost: Retry (8/20) in 1.00 second.
+2025-11-05 12:46:27,761 - INFO - Watching for file changes with StatReloader
+2025-11-05 13:19:27,066 - INFO - Watching for file changes with StatReloader
+2025-11-05 13:19:31,288 - WARNING - Not Found: /favicon.ico
+2025-11-05 14:08:16,712 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 14:08:18,491 - INFO - Watching for file changes with StatReloader
+2025-11-05 14:13:32,548 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 14:13:34,404 - INFO - Watching for file changes with StatReloader
+2025-11-05 14:13:36,739 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 14:31:49,357 - INFO - Watching for file changes with StatReloader
+2025-11-05 14:32:15,144 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 14:32:17,053 - INFO - Watching for file changes with StatReloader
+2025-11-05 14:32:19,338 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 14:56:16,739 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:13:45,929 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:13:47,646 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:17:10,605 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:17:12,319 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:17:45,542 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:17:47,173 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:17:49,446 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:36:27,958 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:40:10,486 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:40:12,917 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:41:59,035 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:42:01,456 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:42:26,134 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:42:28,573 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:49:39,971 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:49:42,415 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:50:37,848 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:50:40,185 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:50:42,920 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:50:45,149 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:11,009 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:13,566 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:17,608 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:20,065 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:27,399 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:29,819 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:32,542 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:34,915 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:39,977 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:42,364 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:45,226 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:47,692 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:56:50,537 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\sources\tasks.py changed, reloading.
+2025-11-05 15:56:52,898 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:57:06,022 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:57:08,467 - INFO - Watching for file changes with StatReloader
+2025-11-05 15:57:11,243 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-05 15:57:13,545 - INFO - Watching for file changes with StatReloader
+Found 10 static sources to scrape.
+Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en

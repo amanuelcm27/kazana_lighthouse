@@ -136,10 +136,24 @@ CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
 CELERY_TASK_SOFT_TIME_LIMIT = 540
 
 from datetime import timedelta
+from celery.schedules import crontab
 CELERY_BEAT_SCHEDULE = {
-    "run_static_scraper_daily": {
-        "task": "sources.tasks.run_static_scraper_task",
-        "schedule": timedelta(minutes=5),
+    # "run_static_scraper_daily": {
+    #     "task": "sources.tasks.run_static_scraper_task",
+    #     "schedule": crontab(hour=12, minute=45), 
+    # },
+    # "run_dynamic_scraper_daily": {
+    #     "task": "sources.tasks.run_dynamic_scraper_task",
+    #     "schedule": crontab(hour=13, minute=0),
+    # },
+    "run_google_api_collector_100times_daily": {
+        "task": "sources.tasks.collect_links_via_google_api_task",
+        "schedule": timedelta(minutes=1),
     },
-
+    "refresh_google_queries_every_6h": {
+        "task": "sources.tasks.refresh_google_queries_task",
+        "schedule": timedelta(minutes=24),
+    },
+    
 }
+
