@@ -154,16 +154,16 @@ CELERY_BEAT_SCHEDULE = {
     #     "task" : "processing.tasks.run_cleaning_task",
     #     "schedule" : timedelta(minutes=1)
     # },
-    "run_llm_extraction": {
-        "task": "processing.tasks.run_llm_extraction_task",
-        "schedule": timedelta(hours=1)
-    },
-    "run_matching": {
-        "task" : "matching.tasks.run_matching_task",
-        "schedule": timedelta(hours=3)
-    },
+    # "run_llm_extraction": {
+    #     "task": "processing.tasks.run_llm_extraction_task",
+    #     "schedule": timedelta(hours=1)
+    # },
+    # "run_matching": {
+    #     "task" : "matching.tasks.run_matching_task",
+    #     "schedule": timedelta(hours=3)
+    # },
     "run_email_digest": {
         "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=6, day_of_week=1/4)
+        "schedule": crontab(hour=7)
     }
 }

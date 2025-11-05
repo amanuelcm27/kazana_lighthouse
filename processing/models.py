@@ -24,7 +24,11 @@ class ProcessedOpportunity(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     confidence_score = models.FloatField(default=0.0)  # from LLM extraction
-
+    matching_status = models.CharField(
+        max_length=20,
+        choices=[("pending", "Pending"), ("matched", "Matched")],
+        default="pending",
+    )
     def __str__(self):
         return self.title
 

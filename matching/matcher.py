@@ -40,14 +40,24 @@ Guidelines:
 - If unrelated, return is_match = false with a low score (0.0-0.4).
 """
 
+def get_unmatched_startups(opportunity):
+    matched_startup_ids = OpportunityMatch.objects.filter(
+        opportunity=opportunity
+    ).values_list("startup_id", flat=True)
+
+    return Startup.objects.exclude(id__in=matched_startup_ids)
+
 # --- Matching logic ---
 def match_startups_to_opportunity(opportunity):
-    startups = Startup.objects.all()
+    startups = get_unmatched_startups(opportunity)
     if not startups.exists():
-        logging.warning("No startups found to match.")
+        logging.info(f"All startups already matched for {opportunity.title}")
+        opportunity.matching_status = "matched"
+        opportunity.save(update_fields=["matching_status"])
         return
 
-    logging.info(f"Matching opportunity: {opportunity.title}")
+    logging.info(f"Matching {opportunity.title} with {startups.count()} remaining startups...")
+
 
     for startup in startups:
         try:
@@ -113,7 +123,7 @@ def run_matching():
     for opp in opportunities:
         match_startups_to_opportunity(opp)
 
-    logging.info(" Matching process completed.")
+    logging.info( " Matching process completed." )
 
 
 if __name__ == "__main__":
