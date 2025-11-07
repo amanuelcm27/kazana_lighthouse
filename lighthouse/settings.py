@@ -134,36 +134,37 @@ CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
 CELERY_TASK_SOFT_TIME_LIMIT = 540
 
 CELERY_BEAT_SCHEDULE = {
-    # "run_static_scraper_daily": {
-    #     "task": "sources.tasks.run_static_scraper_task",
-    #     "schedule": crontab(hour=0,minute=1),
-    # },
-    # "run_dynamic_scraper_daily": {
-    #     "task": "sources.tasks.run_dynamic_scraper_task",
-    #     "schedule": crontab(hour=0, minute=1),
-    # },
-    # "run_google_api_collector_100times_daily": {
-    #     "task": "sources.tasks.collect_links_via_google_api_task",
-    #     "schedule": timedelta(minutes=15),
-    # },
-    # "refresh_google_queries_every_6h": {
-    #     "task": "sources.tasks.refresh_google_queries_task",
-    #     "schedule": timedelta(hours=6),
-    # },
-    # "run_cleaners_daily" : {
-    #     "task" : "processing.tasks.run_cleaning_task",
-    #     "schedule" : timedelta(minutes=1)
-    # },
-    # "run_llm_extraction": {
-    #     "task": "processing.tasks.run_llm_extraction_task",
-    #     "schedule": timedelta(hours=1)
-    # },
-    # "run_matching": {
-    #     "task" : "matching.tasks.run_matching_task",
-    #     "schedule": timedelta(hours=3)
-    # },
+    "run_static_scraper_daily": {
+        "task": "sources.tasks.run_static_scraper_task",
+        "schedule": crontab(hour=0,minute=1),
+    },
+    "run_dynamic_scraper_daily": {
+        "task": "sources.tasks.run_dynamic_scraper_task",
+        "schedule": crontab(hour=0, minute=1),
+    },
+    "run_google_api_collector_100times_daily": {
+        "task": "sources.tasks.collect_links_via_google_api_task",
+        "schedule": timedelta(minutes=15),
+    },
+    "refresh_google_queries_every_6h": {
+        "task": "sources.tasks.refresh_google_queries_task",
+        "schedule": timedelta(hours=6),
+    },
+    "run_cleaners_daily" : {
+        "task" : "processing.tasks.run_cleaning_task",
+        "schedule" : timedelta(hours=6)
+    },
+    "run_llm_extraction": {
+        "task": "processing.tasks.run_llm_extraction_task",
+        "schedule": timedelta(hours=1)
+    },
+    "run_matching": {
+        "task" : "matching.tasks.run_matching_task",
+        "schedule": timedelta(hours=3)
+    },
     "run_email_digest": {
         "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=7)
+        "schedule": crontab(hour=6,minute=10, day_of_week='1,4')
     }
+
 }

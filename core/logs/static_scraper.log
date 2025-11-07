@@ -521,3 +521,20 @@
 Found 10 static sources to scrape.
 Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
 2025-11-05 22:01:38,753 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-07 22:06:37,243 - INFO - Watching for file changes with StatReloader
+2025-11-07 23:05:52,974 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-07 23:05:56,186 - INFO - Watching for file changes with StatReloader
+Found 37 static sources to scrape.
+Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+Error scraping https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en: <class 'celery.concurrency.solo.TaskPool'> does not implement kill_job
+Scraping source: https://environment.ec.europa.eu/funding_en
+2025-11-07 23:17:11,222 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-07 23:17:13,608 - INFO - Watching for file changes with StatReloader
+Found 37 static sources to scrape.
+Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+Found 37 static sources to scrape.
+Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/business-opportunities/publication-call-expressions-interest-eueeamoldova-based-businesses-invest-republic-moldova_en
+2025-11-07 23:51:01,397 - WARNING - Not Found: /favicon.ico
+2025-11-08 00:12:19,911 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-08 00:12:22,942 - INFO - Watching for file changes with StatReloader
+2025-11-08 00:13:25,400 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.

@@ -144,3 +144,5 @@
 2025-10-10 18:45:00,000 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-10-10 18:45:00,000 - INFO - No match: Publication of the Call for expressions of interest for EU/EEA/Moldova-based businesses to invest in the Republic of Moldova \u2192 Smilepay
 2025-10-10 18:45:00,000 - INFO -  Matching process completed.
+2025-11-07 23:44:22,728 - INFO - Starting matching for 5 pending opportunities.
+2025-11-07 23:47:13,947 - INFO - Matching process completed.
