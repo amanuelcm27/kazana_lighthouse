@@ -56,6 +56,10 @@ def run_static_scraper_task():
 @shared_task
 def run_dynamic_scraper_task():
     sources = SourceRegistry.objects.filter(active=True)
+    if not sources.exists():
+        static_logger.warning("No active sources found.")
+        return "No sources to scrape."
+    
     for source in sources:
         dynamic_logger.info(
             f"Analyzing {source.base_url} to choose scraper...")

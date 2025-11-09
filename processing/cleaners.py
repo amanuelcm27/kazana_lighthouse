@@ -35,6 +35,10 @@ def process_raw_opportunities(batch_size=50):
         status="pending"
     )[:batch_size]
 
+    if not raw_entries.exists():
+        logging.info("No pending raw opportunities to process.")
+        return
+    
     logging.info(f"Processing {len(raw_entries)} raw opportunities")
 
     for raw in raw_entries:
