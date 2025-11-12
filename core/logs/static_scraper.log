@@ -538,3 +538,5 @@ Scraping source: https://enlargement.ec.europa.eu/funding-technical-assistance/b
 2025-11-08 00:12:19,911 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
 2025-11-08 00:12:22,942 - INFO - Watching for file changes with StatReloader
 2025-11-08 00:13:25,400 - INFO - C:\Users\25194\Desktop\kazana_lighthouse\lighthouse\settings.py changed, reloading.
+2025-11-10 17:36:57,691 - INFO - Watching for file changes with StatReloader
+2025-11-10 17:37:00,401 - WARNING - Not Found: /favicon.ico
