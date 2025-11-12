@@ -15,7 +15,10 @@ logging.basicConfig(
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-CENTRAL_EMAIL = getattr(settings, "CENTRAL_NOTIFICATION_EMAIL", os.getenv("CENTRAL_NOTIFICATION_EMAIL"))
+CENTRAL_EMAIL0 = getattr(settings, "CENTRAL_NOTIFICATION_EMAIL", os.getenv("CENTRAL_NOTIFICATION_EMAIL"))
+CENTRAL_EMAIL1 = getattr(settings, "PRIMARY_NOTIFICATION_EMAIL", os.getenv("PRIMARY_NOTIFICATION_EMAIL"))
+CENTRAL_EMAIL2 = getattr(settings, "SECONDARY_NOTIFICATION_EMAIL", os.getenv("SECONDARY_NOTIFICATION_EMAIL"))
+CENTRAL_EMAIL3 = getattr(settings, "TERTIARY_NOTIFICATION_EMAIL", os.getenv("TERTIARY_NOTIFICATION_EMAIL"))
 DEFAULT_FROM_EMAIL = getattr(settings, "DEFAULT_FROM_EMAIL", "no-reply@kazana.ai")
 
 
@@ -78,7 +81,7 @@ def build_central_digest_html(startup_groups):
 
 def send_central_digest():
     """Send one consolidated digest email to the central company email."""
-    if not CENTRAL_EMAIL:
+    if not CENTRAL_EMAIL0 or CENTRAL_EMAIL1 or CENTRAL_EMAIL2 or CENTRAL_EMAIL3:
         logging.error("CENTRAL_NOTIFICATION_EMAIL not configured.")
         return
 
@@ -100,7 +103,7 @@ def send_central_digest():
     text_body = "You have new matched opportunities for your startups. Please view the HTML version for details."
 
     try:
-        email = EmailMultiAlternatives(subject, text_body, DEFAULT_FROM_EMAIL, [CENTRAL_EMAIL])
+        email = EmailMultiAlternatives(subject, text_body, DEFAULT_FROM_EMAIL, [CENTRAL_EMAIL0,CENTRAL_EMAIL1,CENTRAL_EMAIL2,CENTRAL_EMAIL3])
         email.attach_alternative(html_body, "text/html")
         email.send()
 
@@ -110,7 +113,7 @@ def send_central_digest():
                 match.mailed_at = timezone.now()
                 match.save(update_fields=["mailed_at"])
 
-        logging.info(f"✅ Sent consolidated digest to {CENTRAL_EMAIL}")
+        logging.info(f"✅ Sent consolidated digest to {CENTRAL_EMAIL0,CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3}")
 
     except Exception as e:
         logging.error(f"❌ Failed to send digest: {e}")
