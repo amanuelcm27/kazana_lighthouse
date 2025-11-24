@@ -1,26 +1,39 @@
 from core.utils import init_django
 init_django()
+import os
+from openai import OpenAI
 import time
 import random
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import logging
-from core.utils import init_django
-init_django()
-
 from sources.models import RawOpportunity, SourceRegistry
 
+
+# -------------------- Logging --------------------
 logging.basicConfig(
     filename="core/logs/static_scraper.log",
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-KEYWORDS = ["grant", "funding", "opportunity", "procurement", "tender", "opportunity"]
-
+# -------------------- Config --------------------
 MIN_DELAY = 1
 MAX_DELAY = 5
+
+COMMON_PATHS = [
+    "/about", "/contact", "/privacy", "/terms", "/login", "/signup",
+    "/search", "/sitemap", "/feed", "/logout", "/account"
+]
+
+IGNORED_TAGS = ["header", "footer", "nav"]
+
+LLM_MODEL = "gpt-5-nano"  # your LLM model
+LLM_MAX_LINKS = 30         # max number of links to send per page
+
+# -------------------- Fetch HTML --------------------
+
 
 def fetch_html(url):
     try:
@@ -32,58 +45,107 @@ def fetch_html(url):
         logging.error(f"Failed to fetch {url}: {e}")
         return None
 
+# -------------------- Extract Candidate Links --------------------
+
+
 def extract_candidate_links(base_url, html):
     soup = BeautifulSoup(html, "html.parser")
     links = set()
     for a in soup.find_all("a", href=True):
-        href = a["href"]
+        href = a["href"].strip()
+        if not href:
+            continue
         full_url = urljoin(base_url, href)
-        if any(k in href.lower() for k in KEYWORDS):
-            links.add(full_url)
-    return links
 
-def scrape_static_source(source_registry_entry, max_depth=2, max_pages=10):
+        if any(full_url.lower().endswith(p) for p in COMMON_PATHS):
+            continue
+        parent_tags = [parent.name for parent in a.parents]
+        if any(tag in parent_tags for tag in IGNORED_TAGS):
+            continue
+        # store anchor text for context
+        anchor_text = a.get_text(strip=True) or urlparse(href).path
+        links.add((full_url, anchor_text))
+
+    return list(links)
+
+# -------------------- LLM Evaluation --------------------
+
+
+def filter_links_with_llm(links):
+    if not links:
+        return []
+
+    # Limit number of links sent to LLM to reduce tokens
+    links = links[:LLM_MAX_LINKS]
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    prompt = """
+    You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
+
+**Important:**
+- Only consider opportunities related to **fin-tech, finance, agritech, B2B e-commerce, marketing, or technology**. 
+- Only output the URLs that are plausible.
+- Do not include any explanations, numbers, or extra text.
+- Output one URL per line, no commas or bullets.
+
+    """
+    for idx, (url, text) in enumerate(links, 1):
+        prompt += f"{url} - {text}\n"
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-5-nano",
+            messages=[{"role": "user", "content": prompt}],
+        )
+        llm_output = response.choices[0].message.content.strip()
+        # Extract URLs from LLM response
+        filtered_urls = [line.strip() for line in llm_output.splitlines()
+                         if line.strip().startswith("http")]
+        print(f' llm approved links: {filtered_urls} out of {links}')
+        return filtered_urls
+    except Exception as e:
+        logging.error(f"LLM evaluation failed: {e}")
+        return []
+
+# -------------------- Scraper --------------------
+
+
+def scrape_google_source(source_registry_entry):
     base_url = source_registry_entry.base_url
     domain = urlparse(base_url).netloc
-    visited = set()
-    queue = [(base_url, 0)]
 
-    while queue and len(visited) < max_pages:
-        url, depth = queue.pop(0)
-        if url in visited or depth > max_depth:
-            continue
+    logging.info(f"Scraping Google-suggested page: {base_url}")
+    html = fetch_html(base_url)
+    if not html:
+        return
 
-        logging.info(f"Fetching {url}")
-        print(f"Fetching {url}")
-        html = fetch_html(url)
-        visited.add(url)
+    candidate_links = extract_candidate_links(base_url, html)
+    filtered_links = filter_links_with_llm(candidate_links)
 
-        if html:
-            # Save raw content
-            RawOpportunity.objects.create(
-                source_type="static",
-                source_name=domain,
-                url=url,
-                raw_content=html
-            )
-            logging.info(f"Saved RawOpportunity for {url}")
-            print(f"Saved RawOpportunity for {url}")
-            # Extract candidate links for further crawling
-            if depth < max_depth:
-                candidate_links = extract_candidate_links(base_url, html)
-                for link in candidate_links:
-                    if link not in visited and len(visited) < max_pages:
-                        queue.append((link, depth + 1))
+    for link in filtered_links:
+        logging.info(f"Fetching LLM-approved link: {link}")
+        page_html = fetch_html(link)
+        if page_html:
+            try:
+                RawOpportunity.objects.create(
+                    source_type="google",
+                    source_name=domain,
+                    url=link,
+                    raw_content=page_html
+                )
+                logging.info(f"Saved RawOpportunity for {link}")
 
-        # Politeness delay between requests
+            except Exception as e:
+                logging.error(f"Failed to save RawOpportunity for {link}: {e}")
+
         time.sleep(random.uniform(MIN_DELAY, MAX_DELAY))
 
+
 def run_scraper():
-    sources = SourceRegistry.objects.filter(active=True, source_type="google")
+    sources = SourceRegistry.objects.filter(
+        active=True, source_type="google").order_by("?")[:10]
     for source in sources:
-        logging.info(f"Starting scraping for {source.base_url}")
-        print(f"Starting scraping for {source.base_url}")
-        scrape_static_source(source)
+        scrape_google_source(source)
+
 
 if __name__ == "__main__":
     run_scraper()

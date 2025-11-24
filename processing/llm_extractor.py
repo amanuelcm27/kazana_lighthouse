@@ -107,7 +107,7 @@ def extract_opportunity_data(cleaned_opportunity):
 
 # --- Batch Processing ---
 def run_extraction():
-    pending_items = CleanedOpportunity.objects.filter(status="pending")[:3]
+    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('?')[:6]
     if not pending_items.exists():
         logging.info("No pending items to process.")
         return

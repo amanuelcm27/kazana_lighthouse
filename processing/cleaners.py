@@ -33,7 +33,7 @@ def clean_html(html_content):
 def process_raw_opportunities(batch_size=50):
     raw_entries = RawOpportunity.objects.filter(
         status="pending"
-    )[:batch_size]
+    )
 
     if not raw_entries.exists():
         logging.info("No pending raw opportunities to process.")

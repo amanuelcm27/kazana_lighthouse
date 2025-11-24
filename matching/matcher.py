@@ -53,6 +53,7 @@ def match_startups_to_opportunity(opportunity):
     if not startups.exists():
         logging.info(f"All startups already matched for {opportunity.title}")
         opportunity.matching_status = "matched"
+        print("All startups already matched.")
         opportunity.save(update_fields=["matching_status"])
         return
 
@@ -114,7 +115,7 @@ def match_startups_to_opportunity(opportunity):
             logging.error(f"Error matching {startup.name} to {opportunity.title}: {e}")
 
 def run_matching():
-    opportunities = ProcessedOpportunity.objects.all()
+    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:5]
     if not opportunities.exists():
         logging.info("No processed opportunities available for matching.")
         return

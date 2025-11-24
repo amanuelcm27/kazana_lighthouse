@@ -81,9 +81,13 @@ def build_central_digest_html(startup_groups):
 
 def send_central_digest():
     """Send one consolidated digest email to the central company email."""
-    if not CENTRAL_EMAIL0 or CENTRAL_EMAIL1 or CENTRAL_EMAIL2 or CENTRAL_EMAIL3:
-        logging.error("CENTRAL_NOTIFICATION_EMAIL not configured.")
+    emails = [CENTRAL_EMAIL0, CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3]
+
+    if not all(emails):
+        print("Some central emails are missing:", emails)
+        logging.error("One or more central notification emails missing.")
         return
+
 
     pending_matches = OpportunityMatch.objects.filter(mailed_at__isnull=True)
 
@@ -98,7 +102,7 @@ def send_central_digest():
 
     logging.info(f"Preparing digest for {len(startup_groups)} startups...")
 
-    subject = f"📢 {sum(len(v) for v in startup_groups.values())} New Matched Opportunities (Daily Digest)"
+    subject = f"📢 {sum(len(v) for v in startup_groups.values())} New Matched Opportunities (Weekly Digest)"
     html_body = build_central_digest_html(startup_groups)
     text_body = "You have new matched opportunities for your startups. Please view the HTML version for details."
 
@@ -113,7 +117,7 @@ def send_central_digest():
                 match.mailed_at = timezone.now()
                 match.save(update_fields=["mailed_at"])
 
-        logging.info(f"✅ Sent consolidated digest to {CENTRAL_EMAIL0,CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3}")
+        logging.info(f"✅ Sent consolidated digest to {CENTRAL_EMAIL0}")
 
     except Exception as e:
         logging.error(f"❌ Failed to send digest: {e}")

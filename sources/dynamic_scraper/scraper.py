@@ -146,7 +146,7 @@ def is_dynamic_site(url):
 
 
 def run_scraper():
-    sources = SourceRegistry.objects.filter(active=True)
+    sources = SourceRegistry.objects.filter(active=True, source_type="google")
     for source in sources:
         logging.info(f"Analyzing {source.base_url} to choose scraper...")
         if is_dynamic_site(source.base_url):
