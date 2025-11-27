@@ -40,11 +40,12 @@ class SourceRegistry(models.Model):
     ]
     name = models.CharField(max_length=255)         
     source_type = models.CharField(max_length=20, choices=SOURCE_TYPES)
-    search_term = models.CharField(max_length=255, blank=True, null=True)
-    base_url = models.URLField()
+    search_term = models.CharField(max_length=1500, blank=True, null=True)
+    base_url = models.URLField(max_length=7000)
     active = models.BooleanField(default=True)       
     web_type = models.CharField(max_length=20, choices=WEB_TYPES, default='static')
     last_scraped = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.name} | {self.source_type}"

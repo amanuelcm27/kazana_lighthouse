@@ -24,9 +24,12 @@ Task:
 1. Read the provided text carefully.
 2. Determine if the text is written primarily in English. 
    - If it is NOT in English, return this exact JSON: {"is_opportunity": false}
-3. If the text is in English, determine if it explicitly and genuinely describes a *funding, grant, project, competition, expression of interest, or contract opportunity*. 
-   - Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity are NOT valid.
-   - The content must clearly state at least one specific opportunity or call for application.
+3. If the text is in English, determine if it explicitly and genuinely describes a
+- Only consider opportunities related to **fin-tech, finance, agritech, agriculture, retail ,  e-commerce , b2b e-commerce ,transport , logistics marketing,  Information technology , investment banking  , remittance**.
+- Only consider opportunities including *funding, grant, equity ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
+- Only conisder opportunities that are relevant to Ethiopian companies.
+- Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity are NOT valid.
+- The content must clearly state at least one specific opportunity or call for application.
 4. If no meaningful opportunity is found, return this exact JSON:
    {"is_opportunity": false}
 5. If a real opportunity is identified, extract and return a structured JSON object in this format:
@@ -107,7 +110,7 @@ def extract_opportunity_data(cleaned_opportunity):
 
 # --- Batch Processing ---
 def run_extraction():
-    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('?')[:6]
+    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('-id')[:30]
     if not pending_items.exists():
         logging.info("No pending items to process.")
         return

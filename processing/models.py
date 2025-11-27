@@ -26,7 +26,7 @@ class ProcessedOpportunity(models.Model):
     confidence_score = models.FloatField(default=0.0)  # from LLM extraction
     matching_status = models.CharField(
         max_length=20,
-        choices=[("pending", "Pending"), ("matched", "Matched")],
+        choices=[("pending", "Pending"), ("matched", "Matched") , ('no match', "No Match")],
         default="pending",
     )
     def __str__(self):

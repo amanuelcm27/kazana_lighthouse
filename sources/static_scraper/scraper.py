@@ -39,7 +39,7 @@ def fetch_html(url):
     try:
         r = requests.get(url, timeout=10)
         r.raise_for_status()
-        time.sleep(random.uniform(0.5, 1.5))
+        time.sleep(random.uniform(1, 5))
         return r.text
     except Exception as e:
         logging.error(f"Failed to fetch {url}: {e}")
@@ -79,10 +79,11 @@ def filter_links_with_llm(links):
     links = links[:LLM_MAX_LINKS]
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = """
-    You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
+    
+You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
 **Important:**
-- Only consider opportunities related to **fin-tech, finance, agritech, B2B e-commerce, marketing, or technology**. 
+- Only consider opportunities related to *funding, grant, equity ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
 - Only output the URLs that are plausible.
 - Do not include any explanations, numbers, or extra text.
 - Output one URL per line, no commas or bullets.
@@ -90,7 +91,7 @@ def filter_links_with_llm(links):
     """
     for idx, (url, text) in enumerate(links, 1):
         prompt += f"{url} - {text}\n"
-
+    print(f' prompt is :-  {prompt}' )
     try:
         response = client.chat.completions.create(
             model="gpt-5-nano",
@@ -141,8 +142,7 @@ def scrape_google_source(source_registry_entry):
 
 
 def run_scraper():
-    sources = SourceRegistry.objects.filter(
-        active=True, source_type="google").order_by("?")[:10]
+    sources = SourceRegistry.objects.filter(active=True, source_type="google").order_by('-id')[:30]
     for source in sources:
         scrape_google_source(source)
 

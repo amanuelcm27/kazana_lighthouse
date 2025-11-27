@@ -106,7 +106,11 @@ def refresh_google_queries_task():
     - innovation challenges
     - tenders
     - project opportunities
-    Make them globally relevant and any sector or funding type.
+    - equity financing
+    - loans
+    - venture capital
+    
+    Make them relevant to Horn of Africa , East Africa or Ethiopian companies and any sector or funding type.
     Output ONLY a JSON array of 24 strings (no extra text).
     """
 

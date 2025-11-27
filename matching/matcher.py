@@ -104,18 +104,22 @@ def match_startups_to_opportunity(opportunity):
                         "status": "pending",
                     }
                 )
+                opportunity.matching_status = "matched"
+                opportunity.save()
                 logging.info(f"Matched: {opportunity.title} → {startup.name} ({data.get('confidence_score', 0.0)})")
 
             else:
                 logging.info(f"No match: {opportunity.title} → {startup.name}")
-
+                opportunity.matching_status = "no match"
+                opportunity.save()
+                
         except json.JSONDecodeError:
             logging.warning(f"Invalid JSON for {startup.name} and {opportunity.title}")
         except Exception as e:
             logging.error(f"Error matching {startup.name} to {opportunity.title}: {e}")
 
 def run_matching():
-    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:5]
+    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:10]
     if not opportunities.exists():
         logging.info("No processed opportunities available for matching.")
         return
