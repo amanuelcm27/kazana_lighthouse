@@ -61,7 +61,6 @@ def save_to_registry(results, search_term):
                 search_term=search_term,
                 base_url=link,
                 active=True,
-                last_scraped = timezone.now(),
             )
             logging.info(f"Added: {name} -> {link}")
         else:
@@ -72,19 +71,19 @@ def refresh_google_queries_task():
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     prompt = """
-    Generate 24 diverse Google search queries related to:
+    Generate 10 diverse Google search queries related to:
+    
     - startup funding
     - grants
-    - innovation challenges
     - tenders
     - project opportunities
     - equity financing
     - loans
     - venture capital
     
-    Make them relevant to Horn of Africa , East Africa or Ethiopian companies , again it must be related to the above mentioned opportunity types.
-    Plus make them relevant to current date / time of year.
-    Output ONLY a JSON array of 24 strings (no extra text).
+    Make them relevant to Horn of Africa , East Africa or specifically prefered if its Ethiopia focused , again it must be related to the above mentioned opportunity types.
+    Plus make them relevant to current date or time of year.
+    Output ONLY a JSON array of 10 strings (no extra text).
     """
 
     response = client.chat.completions.create(
@@ -108,30 +107,16 @@ def refresh_google_queries_task():
 
 
 def main():
-    list_of_queries = ['Ethiopia startup funding opportunities 2025 November', 
-                       'East Africa grants for tech startups 2025 call for proposals',
-                       'Horn of Africa innovation challenge 2025 Ethiopia',
-                       'Ethiopia government tenders 2025 procurement notices', 
-                       'East Africa project funding opportunities 2025 December', 
-                       'Equity financing for Ethiopian startups 2025 venture capital',
-                       'Ethiopia SME loans 2025 government programs', 
-                       'East Africa venture capital firms in Ethiopia 2025',
-                       'Agritech grants for Ethiopian startups 2025',
-                       'UN grants Ethiopia 2025 call for proposals', 
-                       'Energy and climate innovation challenge Ethiopia 2025',
-                       'Horn of Africa public tenders 2025 Ethiopia Kenya',
-                       'Horn of Africa solar energy innovation challenge 2025',
-                       'Ethiopia climate finance grants 2025', 
-                       'East Africa small business loan programs 2025',
-                       'Development project opportunities Ethiopia 2025', 
-                       'Equity funding rounds Ethiopia 2025 Q4',
-                       'Angel investors East Africa Ethiopia 2025', 
-                       'Tech startup grants Ethiopia November 2025',
-                       'Public procurement tenders Ethiopia 2025 Q4', 
-                       'Grants for women-led startups Ethiopia 2025', 
-                       'R&D grants East Africa 2025 Ethiopia', 
-                       'Fintech startup funding East Africa 2025',
-                       'Ethiopia venture capital funding landscape 2025']
+    list_of_queries = ['Ethiopia startup funding 2025 grants and equity financing opportunities',
+                       'East Africa venture capital funding rounds 2025 Ethiopia',
+                       'Horn of Africa government tenders December 2025 Ethiopia procurement', 
+                       'Ethiopia grants for tech startups 2025 government and international donors',
+                       'East Africa SME loans 2025 Ethiopia loan programs December 2025', 
+                       'Tenders in East Africa 2025 infrastructure projects Ethiopia procurement opportunities',
+                       'Equity financing for Ethiopian startups 2025 venture capital', 
+                       'Renewable energy startup grants Ethiopia 2025 donor funding', 
+                       'Ethiopia women entrepreneur grants 2025 East Africa', 
+                       'World Bank and AfDB project tenders Ethiopia December 2025 procurement notices']
     # print(refresh_google_queries_task())
     for query in list_of_queries:
         results = google_search(query, num_results=10)

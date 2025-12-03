@@ -21,7 +21,7 @@ class RawOpportunity(models.Model):
         ("pending", " Pending Processing "),
         ("cleaned", " Cleaned Successfully "),
     ]
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending" , help_text="This shows status of the html content (i.e content has been extracted or not)")
     
     def __str__(self):
         return f"{self.source_name} | {self.source_type} | status {self.status}"

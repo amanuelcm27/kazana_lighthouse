@@ -28,9 +28,10 @@ class ProcessedOpportunity(models.Model):
         max_length=20,
         choices=[("pending", "Pending"), ("matched", "Matched") , ('no match', "No Match")],
         default="pending",
+        help_text="This shows status of specific opportunity matching with a specific startup"
     )
     def __str__(self):
-        return self.title
+        return f" {self.title[:30]}... | status: {self.matching_status} "
 
 
 class CleanedOpportunity(models.Model):

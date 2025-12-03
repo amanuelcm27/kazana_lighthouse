@@ -6,6 +6,7 @@ from core.utils import init_django
 init_django()
 
 from matching.models import OpportunityMatch
+from processing.models import ProcessedOpportunity
 from django.conf import settings
 
 # --- Logging setup ---
@@ -28,11 +29,46 @@ DEFAULT_FROM_EMAIL = getattr(settings, "DEFAULT_FROM_EMAIL", "no-reply@kazana.ai
 #               HTML BUILDER — GROUPED BY OPPORTUNITY
 # ============================================================
 
-def build_central_digest_html(opportunity_groups):
+def build_central_digest_html(opportunity_groups,unmatched_opps):
     """Generate HTML digest grouped under each opportunity with all startups and their justifications."""
 
     html_sections = ""
+    unmatched_sections = ''
+    for opp in unmatched_opps:
+        unmatched_sections += f"""
+            <div style="
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-bottom: 30px; 
+            background: #fafafa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        ">
+            <h2 style="color:#1f4e78;margin:0 0 10px 0;">{opp.title}</h2>
 
+            <p style="margin:0 0 6px 0;"><strong>Organization:</strong> {opp.organization or "N/A"}</p>
+            <p style="margin:0 0 6px 0;"><strong>Category:</strong> {opp.category or "N/A"}</p>
+            <p style="margin:0 0 10px 0;"><strong>Deadline:</strong> {opp.deadline or "N/A"}</p>
+
+            <p style="margin-top:10px;"><strong>Description:</strong> {opp.description or 'N/A'}</p>
+
+
+        """
+
+
+        unmatched_sections += f"""
+
+            <a href="{opp.url or '#'}" style="
+                display:inline-block;
+                margin-top:16px;
+                padding:10px 15px;
+                text-decoration:none;
+                color:white;
+                background:#1f78c1;
+                border-radius:6px;
+            ">View Opportunity</a>
+        </div>
+        """
     for opp, matches in opportunity_groups.items():
 
         html_sections += f"""
@@ -93,7 +129,9 @@ def build_central_digest_html(opportunity_groups):
         <h2 style="color:#2c3e50;">Found {len(opportunity_groups)} Unique Opportunities</h2>
 
         {html_sections}
-
+        <h1 style="color:#2c3e50;">Unmatched opportunities </h1>
+        {unmatched_sections}
+        
         <p style="margin-top:40px;">
             Best regards,<br>
             <strong>Kazana Lighthouse Team</strong>
@@ -112,7 +150,11 @@ def build_central_digest_html(opportunity_groups):
 def send_central_digest():
     """Send consolidated digest email for all pending opportunity matches."""
 
-    emails = [CENTRAL_EMAIL0, CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3]
+    emails = [CENTRAL_EMAIL0,       
+              CENTRAL_EMAIL1,
+              CENTRAL_EMAIL2,
+              CENTRAL_EMAIL3
+              ]
 
     # Filter out any None values, but ensure at least one destination exists
     emails = [e for e in emails if e]
@@ -121,7 +163,8 @@ def send_central_digest():
         return
 
     pending_matches = OpportunityMatch.objects.filter(mailed_at__isnull=True)
-
+    unmatched_opps = ProcessedOpportunity.objects.filter(matching_status='no match')
+    
     if not pending_matches.exists():
         logging.info("No pending opportunity matches to email.")
         return
@@ -136,7 +179,7 @@ def send_central_digest():
 
     # Email content
     subject = f"📢 {len(opportunity_groups)} New Matched Opportunities (Weekly Digest)"
-    html_body = build_central_digest_html(opportunity_groups)
+    html_body = build_central_digest_html(opportunity_groups , unmatched_opps)
     text_body = "You have new matched opportunities. Please view the HTML version for details."
 
     try:

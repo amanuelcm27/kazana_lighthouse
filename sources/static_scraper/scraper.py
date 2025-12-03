@@ -3,12 +3,13 @@ init_django()
 import os
 from openai import OpenAI
 import time
-import random
-import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 import logging
 from sources.models import RawOpportunity, SourceRegistry
+from playwright.sync_api import sync_playwright
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+from django.utils import timezone
 
 
 # -------------------- Logging --------------------
@@ -29,21 +30,36 @@ COMMON_PATHS = [
 
 IGNORED_TAGS = ["header", "footer", "nav"]
 
-LLM_MODEL = "gpt-5-nano"  # your LLM model
-LLM_MAX_LINKS = 30         # max number of links to send per page
+LLM_MODEL = "gpt-5-mini"  
+LLM_MAX_LINKS = 30         
 
 # -------------------- Fetch HTML --------------------
 
 
 def fetch_html(url):
     try:
-        r = requests.get(url, timeout=10)
-        r.raise_for_status()
-        time.sleep(random.uniform(1, 5))
-        return r.text
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                java_script_enabled=True,
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+            )
+            page = context.new_page()
+            try:
+                page.goto(url, wait_until="domcontentloaded", timeout=23000)
+            except PlaywrightTimeoutError:
+                logging.warning(f"Timeout reached for {url}, extracting partial content")
+
+            html = page.content()
+            browser.close()
+            return html
+
     except Exception as e:
-        logging.error(f"Failed to fetch {url}: {e}")
+        logging.error(f"Playwright failed to fetch {url}: {e}")
         return None
+
+
+
 
 # -------------------- Extract Candidate Links --------------------
 
@@ -83,7 +99,7 @@ def filter_links_with_llm(links):
 You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
 **Important:**
-- Only consider opportunities related to *funding, grant, equity ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
+- Only consider opportunities related to *funding, grant, equity financing ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
 - Only output the URLs that are plausible.
 - Do not include any explanations, numbers, or extra text.
 - Output one URL per line, no commas or bullets.
@@ -94,7 +110,7 @@ You are an expert funding analyst. From the list of URLs below, identify which o
     print(f' prompt is :-  {prompt}' )
     try:
         response = client.chat.completions.create(
-            model="gpt-5-nano",
+            model=LLM_MODEL,
             messages=[{"role": "user", "content": prompt}],
         )
         llm_output = response.choices[0].message.content.strip()
@@ -118,8 +134,21 @@ def scrape_google_source(source_registry_entry):
     html = fetch_html(base_url)
     if not html:
         return
-
+    # save base page as RawOpportunity
+    try:
+        RawOpportunity.objects.create(
+            source_type="google",
+            source_name=domain,
+            url=base_url,
+            raw_content=html
+        )
+        source_registry_entry.last_scraped = timezone.now()
+        source_registry_entry.save()
+    except Exception as e:
+        logging.error(f"Failed to save BaseURL RawOpportunity for {base_url}: {e}")
+        
     candidate_links = extract_candidate_links(base_url, html)
+    logging.info(f"Extracted {len(candidate_links)} candidate links from {base_url}")
     filtered_links = filter_links_with_llm(candidate_links)
 
     for link in filtered_links:
@@ -133,19 +162,19 @@ def scrape_google_source(source_registry_entry):
                     url=link,
                     raw_content=page_html
                 )
+                source_registry_entry.last_scraped = timezone.now()
+                source_registry_entry.save()
                 logging.info(f"Saved RawOpportunity for {link}")
 
             except Exception as e:
                 logging.error(f"Failed to save RawOpportunity for {link}: {e}")
 
-        time.sleep(random.uniform(MIN_DELAY, MAX_DELAY))
 
 
 def run_scraper():
-    sources = SourceRegistry.objects.filter(active=True, source_type="google").order_by('-id')[:30]
+    sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:10]
     for source in sources:
         scrape_google_source(source)
-
 
 if __name__ == "__main__":
     run_scraper()

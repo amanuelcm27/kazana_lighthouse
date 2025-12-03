@@ -24,7 +24,7 @@ Task:
 1. Read the provided text carefully.
 2. Determine if the text is written primarily in English. 
    - If it is NOT in English, return this exact JSON: {"is_opportunity": false}
-3. If the text is in English, determine if it explicitly and genuinely describes a
+3. If the text is in English, determine if it explicitly and genuinely follows the following rules : 
 - Only consider opportunities related to **fin-tech, finance, agritech, agriculture, retail ,  e-commerce , b2b e-commerce ,transport , logistics marketing,  Information technology , investment banking  , remittance**.
 - Only consider opportunities including *funding, grant, equity ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
 - Only conisder opportunities that are relevant to Ethiopian companies.
@@ -58,7 +58,7 @@ def extract_opportunity_data(cleaned_opportunity):
     """Send cleaned content to GPT and process if it's a valid opportunity."""
     try:
         response = client.chat.completions.create(
-            model="gpt-5-nano",
+            model="gpt-5-mini",
             messages=[
                 {"role": "system", "content": "You are a precise JSON-only information extractor."},
                 {"role": "user", "content": EXTRACTION_PROMPT},
@@ -110,7 +110,7 @@ def extract_opportunity_data(cleaned_opportunity):
 
 # --- Batch Processing ---
 def run_extraction():
-    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('-id')[:30]
+    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('-id')[:15]
     if not pending_items.exists():
         logging.info("No pending items to process.")
         return
