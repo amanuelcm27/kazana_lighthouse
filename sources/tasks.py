@@ -1,9 +1,9 @@
 from celery import shared_task
 import logging
-from sources.static_scraper.scraper import scrape_static_source
+from sources.scraper import scrape_static_source
 from sources.models import SourceRegistry
 from sources.dynamic_scraper.scraper import scrape_dynamic_source, is_dynamic_site
-from sources.api_ingestor.google_search_collector import google_search, save_to_registry
+from sources.google_search_collector import google_search, save_to_registry
 from datetime import datetime
 from django.core.cache import cache
 from openai import OpenAI

@@ -24,6 +24,7 @@ class ProcessedOpportunity(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     confidence_score = models.FloatField(default=0.0)  # from LLM extraction
+    justification = models.TextField(null=True, blank=True)
     matching_status = models.CharField(
         max_length=20,
         choices=[("pending", "Pending"), ("matched", "Matched") , ('no match', "No Match")],
@@ -43,9 +44,9 @@ class CleanedOpportunity(models.Model):
     )
     source_name = models.CharField(max_length=255)
     url = models.TextField()
-    cleaned_content = models.TextField()
+    cleaned_content = models.TextField()    
     created_at = models.DateTimeField(auto_now_add=True)
-
+    justification = models.TextField(null=True, blank=True, help_text='justification for garbage status')
     STATUS_CHOICES = [
         ("pending", "Pending LLM Processing"),
         ("processed", "Processed Successfully"),

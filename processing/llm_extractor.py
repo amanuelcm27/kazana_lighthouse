@@ -45,7 +45,8 @@ Task:
   "location": "",
   "url": "",
   "posted_date": "",
-  "confidence_score": 0.0
+  "confidence_score": 0.0,
+  "justification": "", # short explanation of why it is or not an opportunity
 }
 
 Rules:
@@ -75,6 +76,7 @@ def extract_opportunity_data(cleaned_opportunity):
 
         # Case 1: No opportunity found
         if not data.get("is_opportunity", False):
+            cleaned_opportunity.justification = data.get("justification", "")
             cleaned_opportunity.status = "garbage"
             cleaned_opportunity.save()
             logging.info(f"Marked as garbage: {cleaned_opportunity.url}")
@@ -93,6 +95,7 @@ def extract_opportunity_data(cleaned_opportunity):
             url=final_url,
             posted_date=parse_date(data.get("posted_date")) if data.get("posted_date") else None,
             confidence_score=float(data.get("confidence_score", 0.0)),
+            justification=data.get("justification", ""),
         )
 
         cleaned_opportunity.status = "processed"
