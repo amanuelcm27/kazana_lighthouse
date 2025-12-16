@@ -1,21 +1,17 @@
+import json
+from openai import OpenAI
+from urllib.parse import urlparse
+from dotenv import load_dotenv
+from googleapiclient.errors import HttpError
+from googleapiclient.discovery import build
+import logging
+import os
+import re
 from core.utils import init_django
 init_django()
-
-from django.utils import timezone
+from sources.models import  SourceRegistry
 from sources.models import SourceRegistry
-from sources.models import RawOpportunity, SourceRegistry
-import requests
-import re
-from bs4 import BeautifulSoup
-import os
-import logging
-import django
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from dotenv import load_dotenv
-from urllib.parse import urlparse
-from openai import OpenAI
-import json
+
 
 
 load_dotenv()
@@ -73,7 +69,7 @@ def refresh_google_queries_task():
 
     prompt = """
     Generate 10 diverse Google search queries related to:
-    
+
     - startup funding
     - grants
     - tenders
@@ -81,10 +77,24 @@ def refresh_google_queries_task():
     - equity financing
     - loans
     - venture capital
+
+    Guidelines:
+    - Focus on Horn of Africa, East Africa, with preference for Ethiopia
+    - Prefer queries that surface:
+        - NGO announcements
+        - Development organizations
+        - Public tenders
+        - Investment programs
+    - Include queries that may surface:
+        - LinkedIn posts
+        - NGO or organization announcements
+        - Consulting or procurement notices
+    - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
+
+
+    Output ONLY a JSON array of 10 strings.
+
     
-    Make them relevant to Horn of Africa , East Africa or specifically prefered if its Ethiopia focused , again it must be related to the above mentioned opportunity types.
-    Plus make them relevant to current date or time of year.
-    Output ONLY a JSON array of 10 strings (no extra text).
     """
 
     response = client.chat.completions.create(
@@ -108,21 +118,20 @@ def refresh_google_queries_task():
 
 
 def main():
-    list_of_queries = ['Ethiopia startup funding 2025 grants December opportunities', 
-                       'Ethiopia government grants for startups 2025 December',
-                       'East Africa tenders 2025 Ethiopia procurement December',
-                       'Ethiopia project opportunities 2025 grants for startups', 
-                       'Ethiopia venture capital funding 2025 December rounds',
-                       'East Africa equity financing opportunities Ethiopia 2025', 
-                       'Ethiopia microfinance loans for small businesses 2025 December', 
-                       'Ethiopia solar startup grants 2025 December', 
-                       ' Horn of Africa tenders 2025 procurement opportunities December',
-                       ' Women-owned startups grants Ethiopia 2025 December ']
+    list_of_queries = ['Ethiopia startup funding grant 2025 NGO announcement',
+                       'East Africa development grants Ethiopia 2025 site:.org', 
+                       'Ethiopia public tenders 2025 development procurement notice',
+                       'Ethiopia venture capital program 2025 investment', 
+                       'East Africa equity financing opportunities Ethiopia 2025',
+                       'Ethiopia loan program government development 2025', 
+                       'LinkedIn Ethiopia startup funding grant 2025', 
+                       'NGO grant opportunities Ethiopia 2025 development organizations',
+                       'Consulting procurement notices Ethiopia 2025 tender', 
+                       'Horn of Africa tenders Ethiopia 2025 government portal']
     # print(refresh_google_queries_task())
     for query in list_of_queries:
         results = google_search(query, num_results=10)
-        save_to_registry(results , query)
-        print(f' saved the follwing links {results}  for query {query} \n')
+        save_to_registry(results, query)
         logging.info("Source registry updated successfully.")
 
 

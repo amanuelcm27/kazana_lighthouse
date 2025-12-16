@@ -138,10 +138,6 @@ CELERY_BEAT_SCHEDULE = {
         "task": "sources.tasks.run_static_scraper_task",
         "schedule": crontab(hour=0,minute=1),
     },
-    "run_dynamic_scraper_daily": {
-        "task": "sources.tasks.run_dynamic_scraper_task",
-        "schedule": crontab(hour=0, minute=1),
-    },
     "run_google_api_collector_100times_daily": {
         "task": "sources.tasks.collect_links_via_google_api_task",
         "schedule": timedelta(minutes=15),

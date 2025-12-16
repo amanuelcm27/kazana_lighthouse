@@ -133,7 +133,7 @@ def match_startups_to_opportunity(opportunity):
 
 
 def run_matching():
-    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:15]
+    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:30]
     if not opportunities.exists():
         logging.info("No processed opportunities available for matching.")
         return

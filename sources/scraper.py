@@ -58,11 +58,7 @@ def fetch_html(url):
         logging.error(f"Playwright failed to fetch {url}: {e}")
         return None
 
-
-
-
 # -------------------- Extract Candidate Links --------------------
-
 
 def extract_candidate_links(base_url, html):
     soup = BeautifulSoup(html, "html.parser")
@@ -96,12 +92,13 @@ def filter_links_with_llm(links):
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = """
     
-You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
+        You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
-**Important:**
-- Only consider opportunities related to *funding, grant, equity financing ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
-- Do not include any explanations, numbers, or extra text.
-- Output one URL per line, no commas or bullets.
+        **Important:**
+        - Only consider opportunities related to *funding, grant, equity financing ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
+        - Links from development banks, NGOs, governments, or recognized organizations should be prioritized.
+        - Do not include any explanations, numbers, or extra text.
+        - Output one URL per line, no commas or bullets.
 
     """
     for idx, (url, text) in enumerate(links, 1):
@@ -148,7 +145,7 @@ def scrape_google_source(source_registry_entry):
     candidate_links = extract_candidate_links(base_url, html)
     logging.info(f"Extracted {len(candidate_links)} candidate links from {base_url}")
     filtered_links = filter_links_with_llm(candidate_links)
-
+    saved_links_count = 0
     for link in filtered_links:
         logging.info(f"Fetching LLM-approved link: {link}")
         page_html = fetch_html(link)
@@ -163,14 +160,14 @@ def scrape_google_source(source_registry_entry):
                 source_registry_entry.last_scraped = timezone.now()
                 source_registry_entry.save()
                 logging.info(f"Saved RawOpportunity for {link}")
-
+                saved_links_count += 1
             except Exception as e:
                 logging.error(f"Failed to save RawOpportunity for {link}: {e}")
 
-
+    logging.info(f"Scraping complete for {base_url}. Saved {saved_links_count} opportunities.")
 
 def run_scraper():
-    sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:10]
+    sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:50]
     for source in sources:
         scrape_google_source(source)
 

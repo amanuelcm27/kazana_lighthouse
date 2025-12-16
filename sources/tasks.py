@@ -54,26 +54,6 @@ def run_static_scraper_task():
 
 
 @shared_task
-def run_dynamic_scraper_task():
-    sources = SourceRegistry.objects.filter(active=True)
-    if not sources.exists():
-        static_logger.warning("No active sources found.")
-        return "No sources to scrape."
-    
-    for source in sources:
-        dynamic_logger.info(
-            f"Analyzing {source.base_url} to choose scraper...")
-        if is_dynamic_site(source.base_url):
-            dynamic_logger.info(f"Using DYNAMIC scraper for {source.base_url}")
-            scrape_dynamic_source(source)
-        else:
-            dynamic_logger.info(
-                f"Site is Not Dynamic, Skiping {source.base_url}")
-
-    return f"Dynamic scraper task completed for {sources.count()} sources."
-
-
-@shared_task
 def collect_links_via_google_api_task():
 
     queries = cache.get("google_queries_pool", [])
