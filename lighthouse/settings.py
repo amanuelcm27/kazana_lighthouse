@@ -133,34 +133,79 @@ CELERY_TASK_ACKS_LATE = True
 # CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
 # CELERY_TASK_SOFT_TIME_LIMIT = 540
 
+# CELERY_BEAT_SCHEDULE = {
+#     "collect_google_links": {
+#         "task": "sources.tasks.collect_links_via_google_api_task",
+#         "schedule": timedelta(hours=1),
+#     },
+#     "refresh_google_queries": {
+#         "task": "sources.tasks.refresh_google_queries_task",
+#         "schedule": timedelta(hours=8, minutes=1),  
+#     },
+#     "run_scraper": {
+#         "task": "sources.tasks.run_scraper_task",
+#         "schedule": timedelta(hours=8),
+#     },
+#     "run_cleaners" : {
+#         "task" : "processing.tasks.run_cleaning_task",
+#         "schedule" : timedelta(hours=8, minutes=5)
+#     },
+#     "run_llm_extraction": {
+#         "task": "processing.tasks.run_llm_extraction_task",
+#         "schedule": timedelta(hours=8, minutes=10)
+#     },
+#     "run_matching": {
+#         "task" : "matching.tasks.run_matching_task",
+#         "schedule": timedelta(hours=8, minutes=15)
+#     },
+#     "run_email_digest": {
+#         "task" : "notifications.tasks.run_email_digest_task",
+#         "schedule": crontab(hour=0,minute=10, day_of_week='5')
+#     }
+
+# }
+
+
+from celery.schedules import crontab
+from datetime import timedelta
+
 CELERY_BEAT_SCHEDULE = {
+    # Collect links frequently
     "collect_google_links": {
         "task": "sources.tasks.collect_links_via_google_api_task",
-        "schedule": timedelta(hours=1),
+        "schedule": timedelta(minutes=1),
     },
+
+    # Refresh queries slightly after multiple collects
     "refresh_google_queries": {
         "task": "sources.tasks.refresh_google_queries_task",
-        "schedule": timedelta(hours=8, minutes=1),  
+        "schedule": timedelta(minutes=5, seconds=10),
     },
+
+    # Scrape shortly after collection
     "run_scraper": {
         "task": "sources.tasks.run_scraper_task",
-        "schedule": timedelta(hours=8),
+        "schedule": timedelta(minutes=8),
     },
-    "run_cleaners" : {
-        "task" : "processing.tasks.run_cleaning_task",
-        "schedule" : timedelta(hours=8, minutes=5)
+
+    # Cleaner follows scraper
+    "run_cleaners": {
+        "task": "processing.tasks.run_cleaning_task",
+        "schedule": timedelta(minutes=8, seconds=30),
     },
+
+    # LLM extraction slightly later
     "run_llm_extraction": {
         "task": "processing.tasks.run_llm_extraction_task",
-        "schedule": timedelta(hours=8, minutes=10)
+        "schedule": timedelta(minutes=9),
     },
-    "run_matching": {
-        "task" : "matching.tasks.run_matching_task",
-        "schedule": timedelta(hours=8, minutes=15)
-    },
-    "run_email_digest": {
-        "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=0,minute=10, day_of_week='5')
-    }
 
+    # Matching last
+    "run_matching": {
+        "task": "matching.tasks.run_matching_task",
+        "schedule": timedelta(minutes=9, seconds=30),
+    },
+
+    # Disable email digest in dev
+    # or move it to every minute for testing
 }

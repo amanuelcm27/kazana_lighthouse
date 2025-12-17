@@ -4,21 +4,29 @@ from processing.cleaners import process_raw_opportunities
 from processing.models import CleanedOpportunity
 from processing.llm_extractor import extract_opportunity_data
 
-# === Logging Setup ===
-formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-
+formatter = logging.Formatter(
+    "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+)
 cleaner_logger = logging.getLogger("cleaners")
+llm_extractor_logger = logging.getLogger("llm_extractor")
+
 cleaner_handler = logging.FileHandler("core/logs/cleaners.log")
 cleaner_handler.setFormatter(formatter)
-cleaner_logger.addHandler(cleaner_handler)
-cleaner_logger.setLevel(logging.INFO)
 
-llm_extractor_logger = logging.getLogger("llm_extractor")
+
 llm_extractor_handler = logging.FileHandler("core/logs/llm_extractor.log")
 llm_extractor_handler.setFormatter(formatter)
-llm_extractor_logger.addHandler(llm_extractor_handler)
-llm_extractor_logger.setLevel(logging.INFO)
 
+
+for handler, log in [
+    (cleaner_handler, cleaner_logger),
+    (llm_extractor_handler, llm_extractor_logger),
+]:
+    if not log.handlers:
+        log.addHandler(handler)
+    log.setLevel(logging.INFO)
+    
+    
 # === Tasks ===
 @shared_task
 def run_cleaning_task():

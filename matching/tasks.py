@@ -3,13 +3,19 @@ import logging
 from matching.matcher import match_startups_to_opportunity
 from processing.models import ProcessedOpportunity
 # === Logging Setup ===
-formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-
+formatter = logging.Formatter(
+    "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
+)
 matcher_logger = logging.getLogger("matcher")
 matcher_handler = logging.FileHandler("core/logs/matcher.log")
 matcher_handler.setFormatter(formatter)
-matcher_logger.addHandler(matcher_handler)
-matcher_logger.setLevel(logging.INFO)
+
+for handler, log in [
+    (matcher_handler, matcher_logger),
+]:
+    if not log.handlers:
+        log.addHandler(handler)
+    log.setLevel(logging.INFO)
 
 @shared_task
 def run_matching_task():

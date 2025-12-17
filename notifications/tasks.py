@@ -7,9 +7,13 @@ formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 email_logger = logging.getLogger("email_service")
 email_handler = logging.FileHandler("core/logs/email_service.log")
 email_handler.setFormatter(formatter)
-email_logger.addHandler(email_handler)
-email_logger.setLevel(logging.INFO)
 
+for handler, log in [
+    (email_handler, email_logger),
+]:
+    if not log.handlers:
+        log.addHandler(handler)
+    log.setLevel(logging.INFO)
 
 
 @shared_task

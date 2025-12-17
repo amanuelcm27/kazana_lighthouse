@@ -14,25 +14,30 @@ import re
 scraper_logger = logging.getLogger("scraper_logger")
 google_logger = logging.getLogger("google_logger")
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
+formatter = logging.Formatter(
+    "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
 )
 
-# File handlers (optional but recommended)
 scraper_handler = logging.FileHandler("core/logs/scraper_logger.log")
+scraper_handler.setFormatter(formatter)
+
 google_handler = logging.FileHandler("core/logs/google_ingestor.log")
+google_handler.setFormatter(formatter)
+
 
 for handler, log in [
     (scraper_handler, scraper_logger),
     (google_handler, google_logger),
 ]:
-    log.addHandler(handler)
+    if not log.handlers:
+        log.addHandler(handler)
+    log.setLevel(logging.INFO)
 
 
 @shared_task
 def run_scraper_task():
-    sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:40]
+    sources = SourceRegistry.objects.filter(
+        active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:40]
     if not sources.exists():
         scraper_logger.warning("No active static sources found.")
         return "No sources to scrape."
@@ -51,24 +56,33 @@ def run_scraper_task():
 
 @shared_task
 def collect_links_via_google_api_task():
+    queries = cache.get("google_queries_pool")
 
-    queries = cache.get("google_queries_pool", [])
     if not queries:
-        google_logger.warning("No query pool found. Generating fallback query.")
-        refresh_google_queries_task.delay()  # refresh queries initially ...
-        queries = ["latest startup grants and funding opportunities 2025"]
+        google_logger.warning(
+            "No query pool found. Generating queries synchronously.")
+        refresh_google_queries_task()  # IMPORTANT: sync call
+        queries = cache.get("google_queries_pool") or [
+            "latest startup grants and funding opportunities 2025"
+        ]
 
-    # Use round-robin selection
     index = cache.get("google_query_index", 0)
     query = queries[index % len(queries)]
-    cache.set("google_query_index", (index + 1) %
-              len(queries), timeout=60 * 60 * 24)
+    google_logger.info(f"Using query index {index}: {query}")
+    cache.set(
+        "google_query_index",
+        (index + 1) % len(queries),
+        timeout=60 * 60 * 24
+    )
 
     results = google_search(query, num_results=10)
-    save_to_registry(results , query)
+    google_logger.info(f"Collected {len(results)}")
+    save_to_registry(results, query)
+
     google_logger.info(
-        f"Used query '{query}' → collected {len(results)} links.")
-    return f"Collected {len(results)} links from query '{query}'."
+        f"Used query '{query}' → collected {len(results)} links."
+    )
+    return f"Collected {len(results)} links using query '{query}'."
 
 
 @shared_task
@@ -118,14 +132,10 @@ def refresh_google_queries_task():
             raise ValueError("No JSON array found in GPT response")
         queries = json.loads(match.group())
         cache.set("google_queries_pool", queries,
-                  timeout=60 * 60 * 24) # 
+                  timeout=60 * 60 * 24)
         cache.set("google_query_index", 0, timeout=60 * 60 * 24)
+        google_logger.info(f"Refreshed Google queries pool with {len(queries)} queries.")
         return f"Generated {len(queries)} new queries."
     except Exception as e:
         google_logger.error(f"Failed to parse GPT response: {e}")
         return "Failed to refresh queries."
-
-
-
-
-        
