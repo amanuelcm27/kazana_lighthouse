@@ -13,8 +13,8 @@ matcher_logger.setLevel(logging.INFO)
 
 @shared_task
 def run_matching_task():
-    opp_batch = 5  # cap per run
-    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending")[:opp_batch]
+    opp_batch = 30  # cap per run
+    opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:opp_batch]
 
     if not opportunities.exists():
         matcher_logger.info("No pending opportunities for matching.")

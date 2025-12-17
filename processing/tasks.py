@@ -28,7 +28,7 @@ def run_cleaning_task():
 
 @shared_task
 def run_llm_extraction_task():
-    pending_items = CleanedOpportunity.objects.filter(status="pending")[:6]
+    pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('-id')[:30]
     if not pending_items.exists():
         llm_extractor_logger.info("No pending items to process.")
         return

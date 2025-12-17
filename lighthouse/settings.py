@@ -130,37 +130,37 @@ CELERY_ENABLE_UTC = False
 
 # Optional rate limiting + task control
 CELERY_TASK_ACKS_LATE = True
-CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
-CELERY_TASK_SOFT_TIME_LIMIT = 540
+# CELERY_TASK_TIME_LIMIT = 600  # 10 minutes per task
+# CELERY_TASK_SOFT_TIME_LIMIT = 540
 
 CELERY_BEAT_SCHEDULE = {
-    "run_static_scraper_daily": {
-        "task": "sources.tasks.run_static_scraper_task",
-        "schedule": crontab(hour=0,minute=1),
-    },
-    "run_google_api_collector_100times_daily": {
+    "collect_google_links": {
         "task": "sources.tasks.collect_links_via_google_api_task",
-        "schedule": timedelta(minutes=15),
+        "schedule": timedelta(hours=1),
     },
-    "refresh_google_queries_every_6h": {
+    "refresh_google_queries": {
         "task": "sources.tasks.refresh_google_queries_task",
-        "schedule": timedelta(hours=6),
+        "schedule": timedelta(hours=8, minutes=1),  
     },
-    "run_cleaners_daily" : {
+    "run_scraper": {
+        "task": "sources.tasks.run_scraper_task",
+        "schedule": timedelta(hours=8),
+    },
+    "run_cleaners" : {
         "task" : "processing.tasks.run_cleaning_task",
-        "schedule" : timedelta(hours=6)
+        "schedule" : timedelta(hours=8, minutes=5)
     },
     "run_llm_extraction": {
         "task": "processing.tasks.run_llm_extraction_task",
-        "schedule": timedelta(hours=1)
+        "schedule": timedelta(hours=8, minutes=10)
     },
     "run_matching": {
         "task" : "matching.tasks.run_matching_task",
-        "schedule": timedelta(hours=3)
+        "schedule": timedelta(hours=8, minutes=15)
     },
     "run_email_digest": {
         "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=6,minute=10, day_of_week='1,4')
+        "schedule": crontab(hour=0,minute=10, day_of_week='5')
     }
 
 }

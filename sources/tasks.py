@@ -1,8 +1,7 @@
 from celery import shared_task
 import logging
-from sources.scraper import scrape_static_source
+from sources.scraper import scrape_google_source
 from sources.models import SourceRegistry
-from sources.dynamic_scraper.scraper import scrape_dynamic_source, is_dynamic_site
 from sources.google_search_collector import google_search, save_to_registry
 from datetime import datetime
 from django.core.cache import cache
@@ -12,9 +11,8 @@ import os
 import re
 
 
-static_logger = logging.getLogger("static_scraper")
-dynamic_logger = logging.getLogger("dynamic_scraper")
-google_logger = logging.getLogger("google_ingestor")
+scraper_logger = logging.getLogger("scraper_logger")
+google_logger = logging.getLogger("google_logger")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -22,33 +20,31 @@ logging.basicConfig(
 )
 
 # File handlers (optional but recommended)
-static_handler = logging.FileHandler("core/logs/static_scraper.log")
-dynamic_handler = logging.FileHandler("core/logs/dynamic_scraper.log")
+scraper_handler = logging.FileHandler("core/logs/scraper_logger.log")
 google_handler = logging.FileHandler("core/logs/google_ingestor.log")
 
 for handler, log in [
-    (static_handler, static_logger),
-    (dynamic_handler, dynamic_logger),
+    (scraper_handler, scraper_logger),
     (google_handler, google_logger),
 ]:
     log.addHandler(handler)
 
 
 @shared_task
-def run_static_scraper_task():
-    sources = SourceRegistry.objects.filter(active=True, source_type="google")
+def run_scraper_task():
+    sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:40]
     if not sources.exists():
-        static_logger.warning("No active static sources found.")
+        scraper_logger.warning("No active static sources found.")
         return "No sources to scrape."
 
-    static_logger.info(f"Found {sources.count()} static sources to scrape.")
+    scraper_logger.info(f"Found {sources.count()} static sources to scrape.")
 
     for source in sources:
         try:
-            static_logger.info(f"Scraping source: {source.base_url}")
-            scrape_static_source(source)
+            scraper_logger.info(f"Scraping source: {source.base_url}")
+            scrape_google_source(source)
         except Exception as e:
-            static_logger.error(f"Error scraping {source.base_url}: {e}")
+            scraper_logger.error(f"Error scraping {source.base_url}: {e}")
 
     return f"Scraped {sources.count()} static sources successfully."
 
@@ -80,37 +76,56 @@ def refresh_google_queries_task():
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     prompt = """
-    Generate 24 diverse Google search queries related to:
+    Generate 8 diverse Google search queries related to:
+
     - startup funding
     - grants
-    - innovation challenges
     - tenders
     - project opportunities
     - equity financing
     - loans
     - venture capital
+
+    Guidelines:
+    - Focus on Horn of Africa, East Africa, with preference for Ethiopia
+    - Prefer queries that surface:
+        - NGO announcements
+        - Development organizations
+        - Public tenders
+        - Investment programs
+    - Include queries that may surface:
+        - LinkedIn posts
+        - NGO or organization announcements
+        - Consulting or procurement notices
+    - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
+
+
+    Output ONLY a JSON array of 10 strings.
+
     
-    Make them relevant to Horn of Africa , East Africa or Ethiopian companies and any sector or funding type.
-    Output ONLY a JSON array of 24 strings (no extra text).
     """
 
     response = client.chat.completions.create(
-        model="gpt-5-nano",
+        model="gpt-5-mini",
         messages=[{"role": "user", "content": prompt}],
     )
 
     try:
         message = response.choices[0].message
-        print(f'gpt response {message}')
         content = message.content.strip()
         match = re.search(r"\[.*\]", content, re.DOTALL)
         if not match:
             raise ValueError("No JSON array found in GPT response")
-
         queries = json.loads(match.group())
         cache.set("google_queries_pool", queries,
-                  timeout=60 * 60 * 6)  # 6 hours
+                  timeout=60 * 60 * 24) # 
+        cache.set("google_query_index", 0, timeout=60 * 60 * 24)
         return f"Generated {len(queries)} new queries."
     except Exception as e:
         google_logger.error(f"Failed to parse GPT response: {e}")
         return "Failed to refresh queries."
+
+
+
+
+        
