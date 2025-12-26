@@ -96,7 +96,7 @@ def filter_links_with_llm(links):
 
         **Important:**
         - Only consider opportunities related to *funding, grant, equity financing ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
-        - Links from development banks, NGOs, governments, or recognized organizations should be prioritized.
+        - Links from development banks, NGOs, governments, linkedin or recognized organizations should be prioritized.
         - Do not include any explanations, numbers, or extra text.
         - Output one URL per line, no commas or bullets.
 

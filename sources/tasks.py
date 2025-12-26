@@ -109,7 +109,7 @@ def refresh_google_queries_task():
         - Investment programs
     - Include queries that may surface:
         - LinkedIn posts
-        - NGO or organization announcements
+        - Social media Posts 
         - Consulting or procurement notices
     - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
 

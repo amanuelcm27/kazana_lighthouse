@@ -1,6 +1,10 @@
 .venv
+venv/
 .env
 __pycache__/
 celerybeat-schedule
 logs/
 migrations/
+*.bak
+*.dat
+*.dir
