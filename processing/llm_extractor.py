@@ -33,11 +33,13 @@ Task:
 - Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity  are NOT valid.
 - The content must clearly state at least one specific opportunity that is actionable not mere news about past event that isn't actionable now for a startup .
 
-4. If no meaningful opportunity is found, return this exact JSON:
+4. Look explicitly for deadlines and dates related to the opportunity and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
+
+5. If no meaningful opportunity is found, return this exact JSON:
    { "is_opportunity": false,
      "justification": "short explanation"
    }
-5. Look explicitly for deadlines and dates related to the opportunity and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
+
 6. If the above conditions are fulfilled and real opportunity is identified, extract and return a structured JSON object in this format:
 
 {
