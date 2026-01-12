@@ -37,7 +37,7 @@ Task:
    { "is_opportunity": false,
      "justification": "short explanation"
    }
-5. Look explicitly for deadlines related to the opportunity.
+5. Look explicitly for deadlines and dates related to the opportunity and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
 6. If the above conditions are fulfilled and real opportunity is identified, extract and return a structured JSON object in this format:
 
 {
