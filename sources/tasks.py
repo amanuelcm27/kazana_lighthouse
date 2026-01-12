@@ -90,40 +90,22 @@ def refresh_google_queries_task():
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     prompt = """
-    Generate 8 diverse Google search queries related to:
-
+    Generate 6 diverse Google search queries related to:
     - startup funding
     - grants
     - tenders
-    - project opportunities
     - equity financing
     - loans
     - venture capital
-
     Guidelines:
     - Focus on Horn of Africa, East Africa, with preference for Ethiopia
-    - Prefer queries that surface:
-        - NGO announcements
-        - Development organizations
-        - Public tenders
-        - Investment programs
-    - Include queries that may surface:
-        - LinkedIn posts
-        - Social media Posts 
-        - Consulting or procurement notices
     - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
-
-
-    Output ONLY a JSON array of 10 strings.
-
-    
+    Output ONLY a JSON array of 6 strings.
     """
-
     response = client.chat.completions.create(
         model="gpt-5-mini",
         messages=[{"role": "user", "content": prompt}],
     )
-
     try:
         message = response.choices[0].message
         content = message.content.strip()

@@ -136,11 +136,11 @@ CELERY_TASK_ACKS_LATE = True
 CELERY_BEAT_SCHEDULE = {
     "collect_google_links": {
         "task": "sources.tasks.collect_links_via_google_api_task",
-        "schedule": timedelta(hours=1),
+        "schedule": timedelta(hours=6),
     },
     "refresh_google_queries": {
         "task": "sources.tasks.refresh_google_queries_task",
-        "schedule": timedelta(hours=8, minutes=1),  
+        "schedule": timedelta(hours=6, minutes=1),  
     },
     "run_scraper": {
         "task": "sources.tasks.run_scraper_task",

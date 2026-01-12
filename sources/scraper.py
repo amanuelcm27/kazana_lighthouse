@@ -95,8 +95,7 @@ def filter_links_with_llm(links):
         You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
         **Important:**
-        - Only consider opportunities related to *funding, grant, equity financing ,  project, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
-        - Links from development banks, NGOs, governments, linkedin or recognized organizations should be prioritized.
+        - Only consider opportunities related to *funding, grant, equity financing, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
         - Do not include any explanations, numbers, or extra text.
         - Output one URL per line, no commas or bullets.
 
