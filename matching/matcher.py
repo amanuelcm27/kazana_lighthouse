@@ -36,10 +36,12 @@ Return ONLY valid JSON in this format (array of objects, one per startup):
 Guidelines:
 - Consider each startup's industry, keywords, country, and description.
 - Consider the opportunity's title, description, category, eligibility, and location.
-- If a startup could realistically benefit (funding, partnership, or related support),
+- If a startup could realistically benefit interms of funding and partnership from the opportunity and not simply related by industry,  
   return is_match = true with a balanced confidence score (0.7-1.0).
 - If unrelated, return is_match = false with a low score (0.0-0.4).
-- Evaluate each startup independently.
+- Evaluate each startup independently with the opportunity.
+- Do NOT include any explanations, only return the JSON array as specified.
+
 """
 
 def get_unmatched_startups(opportunity):
