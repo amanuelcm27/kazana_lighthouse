@@ -1,3 +1,4 @@
+from django.utils import timezone
 import os
 import json
 import logging
@@ -28,33 +29,36 @@ Task:
    
 3. If the text is in English, determine if it explicitly and genuinely follows the following rules : 
 - Only consider opportunities related to **fin-tech, finance, agritech, agriculture, retail ,  e-commerce , b2b e-commerce ,transport , logistics marketing,  Information technology , investment banking  , remittance**.
-- Only consider opportunities including *funding, grant, equity , competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity* but with in the domains above mentioned 
+- Only consider opportunities including *funding, grant, equity , request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity* but with in the domains above mentioned 
 - Only conisder opportunities that are relevant to Ethiopian companies.
 - Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity  are NOT valid.
 - The content must clearly state at least one specific opportunity that is actionable not mere news about past event that isn't actionable now for a startup .
 
-4. Look explicitly for deadlines and dates related to the opportunity and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
+4. Look explicitly for deadlines and dates related to the opportunity in the content and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
 
 5. If no meaningful opportunity is found, return this exact JSON:
-   { "is_opportunity": false,
+   { 
+     "is_opportunity": false,
      "justification": "short explanation"
    }
 
 6. If the above conditions are fulfilled and real opportunity is identified, extract and return a structured JSON object in this format:
 
 {
+    
   "is_opportunity": true,
   "title": "",
   "description": "",
   "organization": "",
   "category": "",
   "eligibility": "",
-  "deadline": "",
+  "deadline": "", # Use ISO format YYYY-MM-DD. Leave empty if missing or expired.
   "location": "",
   "url": "",
   "posted_date": "",
   "confidence_score": 0.0,
   "justification": "", # short explanation of why this is a valid opportunity
+  
 }
 
 Rules:
@@ -67,7 +71,7 @@ def extract_opportunity_data(cleaned_opportunity):
     """Send cleaned content to GPT and process if it's a valid opportunity."""
     try:
         response = client.chat.completions.create(
-            model="gpt-5-mini",
+            model="gpt-5.1",
             messages=[
                 {"role": "system", "content": "You are a precise JSON-only information extractor."},
                 {"role": "user", "content": EXTRACTION_PROMPT},
@@ -89,6 +93,15 @@ def extract_opportunity_data(cleaned_opportunity):
             cleaned_opportunity.save()
             logging.info(f"Marked as garbage: {cleaned_opportunity.url}")
             return
+        deadline_str = data.get("deadline")
+        deadline_obj = parse_date(deadline_str) if deadline_str else None
+        if not deadline_obj or deadline_obj < timezone.now().date():
+            cleaned_opportunity.justification = "Missing or expired deadline"
+            cleaned_opportunity.status = "garbage"
+            cleaned_opportunity.save()
+            logging.info(f"Marked as garbage due to invalid deadline: {cleaned_opportunity.url}")
+            return
+        
         final_url = data.get("url") or cleaned_opportunity.url
         # Case 2: Create ProcessedOpportunity
         ProcessedOpportunity.objects.create(
@@ -98,7 +111,7 @@ def extract_opportunity_data(cleaned_opportunity):
             organization=data.get("organization", ""),
             category=data.get("category", ""),
             eligibility=data.get("eligibility", ""),
-            deadline=parse_date(data.get("deadline")) if data.get("deadline") else None,
+            deadline=deadline_obj,
             location=data.get("location", ""),
             url=final_url,
             posted_date=parse_date(data.get("posted_date")) if data.get("posted_date") else None,

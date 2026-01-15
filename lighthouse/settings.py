@@ -136,11 +136,11 @@ CELERY_TASK_ACKS_LATE = True
 CELERY_BEAT_SCHEDULE = {
     "collect_google_links": {
         "task": "sources.tasks.collect_links_via_google_api_task",
-        "schedule": timedelta(hours=6),
+        "schedule": timedelta(hours=8),
     },
     "refresh_google_queries": {
         "task": "sources.tasks.refresh_google_queries_task",
-        "schedule": timedelta(hours=36),  
+        "schedule": timedelta(hours=48),  
     },
     "run_scraper": {
         "task": "sources.tasks.run_scraper_task",
@@ -152,7 +152,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "run_llm_extraction": {
         "task": "processing.tasks.run_llm_extraction_task",
-        "schedule": timedelta(hours=8, minutes=10)
+        "schedule": timedelta(hours=4)
     },
     "run_matching": {
         "task" : "matching.tasks.run_matching_task",
@@ -160,7 +160,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "run_email_digest": {
         "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=0,minute=10, day_of_week='5')
+        "schedule": crontab(hour=6,minute=10, day_of_week='5')
     }
 
 }

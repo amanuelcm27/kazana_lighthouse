@@ -2,6 +2,7 @@ from celery import shared_task
 import logging
 from sources.scraper import scrape_google_source
 from sources.models import SourceRegistry
+from processing.models import CleanedOpportunity
 from sources.google_search_collector import google_search, save_to_registry
 from datetime import datetime
 from django.core.cache import cache
@@ -34,8 +35,22 @@ for handler, log in [
     log.setLevel(logging.INFO)
 
 
+Max_Pending_Items_in_cleaned_opportunity = 50
+Max_unscraped_source_registry_items = 100
+
+def extraction_backlog_high():
+    return CleanedOpportunity.objects.filter(status="pending").count() >= Max_Pending_Items_in_cleaned_opportunity
+
+def source_registry_backlog_high():
+    return SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).count() >= Max_unscraped_source_registry_items
+
 @shared_task
 def run_scraper_task():
+    if extraction_backlog_high():
+        scraper_logger.warning(
+            "Extraction backlog is high. Skipping scraping to prioritize processing."
+        )
+        return "Skipped scraping due to high extraction backlog."
     sources = SourceRegistry.objects.filter(
         active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:40]
     if not sources.exists():
@@ -56,6 +71,11 @@ def run_scraper_task():
 
 @shared_task
 def collect_links_via_google_api_task():
+    if source_registry_backlog_high():
+        google_logger.warning(
+            "SourceRegistry backlog is high. Skipping Google link collection to prioritize scraping."
+        )
+        return "Skipped Google link collection due to high SourceRegistry backlog."
     queries = cache.get("google_queries_pool")
 
     if not queries:

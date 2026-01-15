@@ -129,9 +129,7 @@ def build_central_digest_html(opportunity_groups,unmatched_opps):
         <h2 style="color:#2c3e50;">Found {len(opportunity_groups)} Unique Opportunities</h2>
 
         {html_sections}
-        <div style="margin:40px 0; border-top:2px solid #2c3e50;"></div>
-        <h1 style="color:#e74c3c;">Unmatched Opportunities</h1>
-        {unmatched_sections}
+
         
         <p style="margin-top:40px;">
             Best regards,<br>

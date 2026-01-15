@@ -21,7 +21,7 @@ You are a precise opportunity-startup matcher.
 
 Your job:
 Given a list of startup profiles and a single funding or partnership opportunity,
-decide which startups are relevant for the opportunity.
+decide which startups are specifically meant for the opportunity.
 
 Return ONLY valid JSON in this format (array of objects, one per startup):
 [
@@ -30,7 +30,7 @@ Return ONLY valid JSON in this format (array of objects, one per startup):
     "is_match": true/false,
     "confidence_score": 0.0,
     "justification": ""
-  }
+  } 
 ]
 
 Guidelines:
@@ -83,7 +83,7 @@ def match_startups_to_opportunity(opportunity):
     try:
         response = client.chat.completions.create(
             model="gpt-5-mini",
-            messages=[
+            messages = [
                 {"role": "system", "content": "You are a JSON-only evaluator."},
                 {"role": "user", "content": MATCHING_PROMPT},
                 {"role": "user", "content": f"Startups:\n{startups_text_str}\n\nOpportunity:\n{opportunity_text}"},
