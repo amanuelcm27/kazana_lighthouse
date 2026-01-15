@@ -147,40 +147,53 @@ def build_central_digest_html(opportunity_groups,unmatched_opps):
 #                  SEND DIGEST EMAIL
 # ============================================================
 
+from django.db.models import Max
+
 def send_central_digest():
-    """Send consolidated digest email for all pending opportunity matches."""
+    """Send consolidated digest email for top 6 highly scoring opportunity matches."""
 
-    emails = [CENTRAL_EMAIL0,       
-              CENTRAL_EMAIL1,
-              CENTRAL_EMAIL2,
-              CENTRAL_EMAIL3
-              ]
-
-    # Filter out any None values, but ensure at least one destination exists
+    emails = [CENTRAL_EMAIL0, CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3]
     emails = [e for e in emails if e]
     if not emails:
         logging.error("No central notification emails configured.")
         return
 
-    pending_matches = OpportunityMatch.objects.filter(mailed_at__isnull=True)
-    unmatched_opps = ProcessedOpportunity.objects.filter(matching_status='no match')
-    
-    if not pending_matches.exists():
-        logging.info("No pending opportunity matches to email.")
+    # Annotate opportunities with their max confidence score
+    top_opportunity_ids = (
+        OpportunityMatch.objects
+        .filter(mailed_at__isnull=True)
+        .values('opportunity')
+        .annotate(max_confidence=Max('confidence_score'))
+        .order_by('-max_confidence')[:6]  # Take top 6 opportunities
+        .values_list('opportunity', flat=True)
+    )
+
+    if not top_opportunity_ids:
+        logging.info("No opportunity matches to email.")
         return
 
-    # Group matches by opportunity instead of startup
+    # Fetch matches for these top opportunities
+    pending_matches = (
+        OpportunityMatch.objects
+        .filter(opportunity_id__in=top_opportunity_ids, mailed_at__isnull=True)
+        .select_related('opportunity', 'startup')
+    )
+
+    # Group matches by opportunity
     opportunity_groups = {}
     for match in pending_matches:
         opp = match.opportunity
         opportunity_groups.setdefault(opp, []).append(match)
 
-    logging.info(f"Preparing digest for {len(opportunity_groups)} unique opportunities...")
+    # Fetch unmatched opportunities if needed
+    unmatched_opps = ProcessedOpportunity.objects.filter(matching_status='no match')
 
-    # Email content
-    subject = f"📢 {len(opportunity_groups)} New Matched Opportunities (Weekly Digest)"
-    html_body = build_central_digest_html(opportunity_groups , unmatched_opps)
-    text_body = "You have new matched opportunities. Please view the HTML version for details."
+    logging.info(f"Preparing digest for top {len(opportunity_groups)} opportunities...")
+
+    # Build email content
+    subject = f"📢 {len(opportunity_groups)} New High-Scoring Opportunities (Weekly Digest)"
+    html_body = build_central_digest_html(opportunity_groups, unmatched_opps)
+    text_body = "You have new high-scoring matched opportunities. Please view the HTML version for details."
 
     try:
         email = EmailMultiAlternatives(
@@ -192,7 +205,7 @@ def send_central_digest():
         email.attach_alternative(html_body, "text/html")
         email.send()
 
-        # Mark all matches as mailed
+        # Mark matches as mailed
         now = timezone.now()
         for matches in opportunity_groups.values():
             for match in matches:
@@ -204,10 +217,6 @@ def send_central_digest():
     except Exception as e:
         logging.error(f"❌ Failed to send digest: {e}")
 
-
-# ============================================================
-#                       RUN SCRIPT
-# ============================================================
 
 if __name__ == "__main__":
     send_central_digest()
