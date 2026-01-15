@@ -140,7 +140,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "refresh_google_queries": {
         "task": "sources.tasks.refresh_google_queries_task",
-        "schedule": timedelta(hours=6, minutes=1),  
+        "schedule": timedelta(hours=36),  
     },
     "run_scraper": {
         "task": "sources.tasks.run_scraper_task",
