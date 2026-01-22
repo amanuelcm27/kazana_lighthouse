@@ -160,7 +160,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "run_email_digest": {
         "task" : "notifications.tasks.run_email_digest_task",
-        "schedule": crontab(hour=0,minute=10, day_of_week='5')
+        "schedule": crontab(hour=6,minute=10, day_of_week='5')
     }
 
 }
