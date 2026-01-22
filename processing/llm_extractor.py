@@ -30,7 +30,7 @@ Task:
 3. If the text is in English, determine if it explicitly and genuinely follows the following rules : 
 - Only consider opportunities related to **fin-tech, finance, agritech, agriculture, retail ,  e-commerce , b2b e-commerce ,transport , logistics marketing,  Information technology , investment banking  , remittance**.
 - Only consider opportunities including *funding, grant, equity , request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity* but with in the domains above mentioned 
-- Only conisder opportunities that are relevant to Ethiopian companies.
+- Only conisder opportunities that are relevant to Ethiopia and Ethiopian companies.
 - Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity  are NOT valid.
 - The content must clearly state at least one specific opportunity that is actionable not mere news about past event that isn't actionable now for a startup .
 
@@ -93,6 +93,7 @@ def extract_opportunity_data(cleaned_opportunity):
             cleaned_opportunity.save()
             logging.info(f"Marked as garbage: {cleaned_opportunity.url}")
             return
+        # case 2: No valid deadline
         deadline_str = data.get("deadline")
         deadline_obj = parse_date(deadline_str) if deadline_str else None
         if not deadline_obj or deadline_obj < timezone.now().date():
@@ -103,7 +104,7 @@ def extract_opportunity_data(cleaned_opportunity):
             return
         
         final_url = data.get("url") or cleaned_opportunity.url
-        # Case 2: Create ProcessedOpportunity
+        # Case 3: Create ProcessedOpportunity
         ProcessedOpportunity.objects.create(
             raw_opportunity=cleaned_opportunity.raw_opportunity,
             title=data.get("title", "")[:500],
