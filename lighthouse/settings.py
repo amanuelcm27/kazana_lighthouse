@@ -152,7 +152,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "run_llm_extraction": {
         "task": "processing.tasks.run_llm_extraction_task",
-        "schedule": timedelta(hours=4)
+        "schedule": timedelta(hours=2)
     },
     "run_matching": {
         "task" : "matching.tasks.run_matching_task",
