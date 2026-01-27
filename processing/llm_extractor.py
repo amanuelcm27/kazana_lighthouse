@@ -19,51 +19,76 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 EXTRACTION_PROMPT = """
 
-You are an expert opportunity classifier and structured information extractor.
+You are an expert opportunity classifier and extractor.
 
-Task:
-1. Read the provided text carefully.
+IMPORTANT:
+This task has STRICT PRIORITY RULES.
+If a hard rule fails, you MUST immediately reject the opportunity.
 
-2. Determine if the text is written primarily in English. 
-   - If it is NOT in English, return this exact JSON:   { "is_opportunity": false, "justification": "short explanation"}
-   
-3. If the text is in English, determine if it explicitly and genuinely follows the following rules : 
-- Only consider opportunities related to **fin-tech, finance, agritech, agriculture, retail ,  e-commerce , b2b e-commerce ,transport , logistics marketing,  Information technology , investment banking  , remittance**.
-- Only consider opportunities including *funding, grant, equity , request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity* but with in the domains above mentioned 
-- Only conisder opportunities that are relevant to Ethiopia and Ethiopian companies.
-- Generic mentions such as “looking for funding” or “apply now” without clear details of a specific opportunity  are NOT valid.
-- The content must clearly state at least one specific opportunity that is actionable not mere news about past event that isn't actionable now for a startup .
+HARD RULES (evaluate in order):
 
-4. Look explicitly for deadlines and dates related to the opportunity in the content and that they must be beyond the current date. If the deadline is in the past consider the opportunity invalid.
+1. LANGUAGE CHECK
+- If the text is NOT primarily in English → immediately return:
+{ "is_opportunity": false, "justification": "Not written in English" }
 
-5. If no meaningful opportunity is found, return this exact JSON:
-   { 
-     "is_opportunity": false,
-     "justification": "short explanation"
-   }
+2. GEOGRAPHIC RELEVANCE (MOST IMPORTANT RULE)
+Classify the opportunity location into ONE of the following:
+- "ethiopia"
+- "horn_of_africa"
+- "outside_target_region"
 
-6. If the above conditions are fulfilled and real opportunity is identified, extract and return a structured JSON object in this format:
+Rules:
+- If location is "outside_target_region", you MUST reject immediately.
+- Ethiopia has highest priority.
+- Horn of Africa is acceptable.
 
+
+3. DEADLINE VALIDITY
+- The opportunity MUST contain a clear deadline.
+- The deadline MUST be in the future from today.
+- If missing or expired → reject immediately.
+
+ONLY IF ALL HARD RULES PASS Evaluate the following RULES:
+
+4. DOMAIN & OPPORTUNITY CHECK
+- Must be related to: fintech, finance, agritech, agriculture, retail, e-commerce, B2B e-commerce, transport, logistics, marketing, IT, investment banking, remittance.
+- Must involve funding, grant, equity, Request for proposal (RFP), Expression of interest (EOI), loan, contract.
+- Must be an actionable current opportunity (not news about some deal, not past events).
+
+5. Confidence scoring rule:
+- Ethiopia-focused opportunities should have confidence ≥ 0.75
+- Horn of Africa ≥ 0.6
+
+OUTPUT FORMAT (JSON ONLY):
+
+If rejected:
 {
-    
+  "is_opportunity": false,
+  "rejection_stage": "language | geography | deadline | domain",
+  "geo_scope": "",
+  "justification": ""
+}
+
+If accepted:
+{
   "is_opportunity": true,
+  "geo_scope": "ethiopia | horn_of_africa ",
   "title": "",
   "description": "",
   "organization": "",
   "category": "",
   "eligibility": "",
-  "deadline": "", # Use ISO format YYYY-MM-DD. Leave empty if missing or expired.
+  "deadline": "YYYY-MM-DD",
   "location": "",
   "url": "",
   "posted_date": "",
   "confidence_score": 0.0,
-  "justification": "", # short explanation of why this is a valid opportunity
-  
+  "justification": ""
 }
 
 Rules:
-- Always return ONLY valid JSON (no markdown or comments).
-
+- Always return valid JSON ( no markdown or comments )
+- Do NOT infer geography if not clearly stated
 
 """
 
@@ -93,7 +118,16 @@ def extract_opportunity_data(cleaned_opportunity):
             cleaned_opportunity.save()
             logging.info(f"Marked as garbage: {cleaned_opportunity.url}")
             return
-        # case 2: No valid deadline
+        
+        # case 2: Geographic Failure
+        geo_scope = data.get("geo_scope")
+        if geo_scope not in ["ethiopia", "horn_of_africa"]:
+            cleaned_opportunity.status = "garbage"
+            cleaned_opportunity.justification = "Outside target geography"
+            cleaned_opportunity.save()
+            return
+
+        # case 3: No valid deadline
         deadline_str = data.get("deadline")
         deadline_obj = parse_date(deadline_str) if deadline_str else None
         if not deadline_obj or deadline_obj < timezone.now().date():
@@ -103,8 +137,8 @@ def extract_opportunity_data(cleaned_opportunity):
             logging.info(f"Marked as garbage due to invalid deadline: {cleaned_opportunity.url}")
             return
         
-        final_url = data.get("url") or cleaned_opportunity.url
         # Case 3: Create ProcessedOpportunity
+        final_url = data.get("url") or cleaned_opportunity.url
         ProcessedOpportunity.objects.create(
             raw_opportunity=cleaned_opportunity.raw_opportunity,
             title=data.get("title", "")[:500],

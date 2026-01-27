@@ -43,6 +43,7 @@ def run_llm_extraction_task():
 
     llm_extractor_logger.info(f"Starting extraction for {pending_items.count()} pending items...")
     for item in pending_items:
+        llm_extractor_logger.info(f"Extracting began for {item.source_name}")
         extract_opportunity_data(item)
     llm_extractor_logger.info("Extraction batch completed.")
     return f"LLM extraction Complete for {pending_items.count()}"
