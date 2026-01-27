@@ -118,7 +118,7 @@ def refresh_google_queries_task():
     - loans
     - venture capital
     Guidelines:
-    - Focus on Horn of Africa, East Africa, with preference for Ethiopia
+    - Focus on Horn of Africa, East Africa, with hyper focus for Ethiopia
     - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
     Output ONLY a JSON array of 6 strings.
     """
