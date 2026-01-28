@@ -18,8 +18,16 @@ MAX_DELAY = 5
 
 COMMON_PATHS = [
     "/about", "/contact", "/privacy", "/terms", "/login", "/signup",
-    "/search", "/sitemap", "/feed", "/logout", "/account"
+    "/search", "/sitemap", "/feed", "/logout", "/account" , "/faqs"
 ]
+BLOCKED_EXTENSIONS = (
+    ".pdf", ".doc", ".docx",
+    ".xls", ".xlsx",
+    ".ppt", ".pptx",
+    ".zip", ".rar", ".7z",
+    ".csv", ".json",
+    ".jpg", ".jpeg", ".png", ".gif", ".svg",
+)
 
 IGNORED_TAGS = ["header", "footer", "nav"]
 
@@ -30,6 +38,11 @@ LLM_MAX_LINKS = 30
 
 
 def fetch_html(url):
+    parsed = urlparse(url)
+    if parsed.path.lower().endswith(BLOCKED_EXTENSIONS):
+        scraper_logger.info(f"Skipping file URL (not HTML): {url}")
+        return None
+    
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
@@ -56,22 +69,34 @@ def fetch_html(url):
 def extract_candidate_links(base_url, html):
     soup = BeautifulSoup(html, "html.parser")
     links = set()
+
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
         if not href:
             continue
-        full_url = urljoin(base_url, href)
 
-        if any(full_url.lower().endswith(p) for p in COMMON_PATHS):
+        full_url = urljoin(base_url, href)
+        parsed = urlparse(full_url)
+        path = parsed.path.lower()
+
+        # skip files (PDFs, docs, zips, images, etc.)
+        if path.endswith(BLOCKED_EXTENSIONS):
             continue
+
+        # skip common non-opportunity pages
+        if any(path.endswith(p) for p in COMMON_PATHS):
+            continue
+
+        # skip nav/header/footer links
         parent_tags = [parent.name for parent in a.parents]
         if any(tag in parent_tags for tag in IGNORED_TAGS):
             continue
-        # store anchor text for context
-        anchor_text = a.get_text(strip=True) or urlparse(href).path
+
+        anchor_text = a.get_text(strip=True) or path
         links.add((full_url, anchor_text))
 
     return list(links)
+
 
 # -------------------- LLM Evaluation --------------------
 
@@ -85,17 +110,16 @@ def filter_links_with_llm(links):
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = """
     
-        You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
+        You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **f unding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
         **Important:**
-        - Only consider opportunities related to *funding, grant, equity financing, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
+        - Only consider opportunities links related to *funding, grant, equity financing, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
         - Do not include any explanations, numbers, or extra text.
         - Output one URL per line, no commas or bullets.
 
     """
     for idx, (url, text) in enumerate(links, 1):
         prompt += f"{url} - {text}\n"
-    print(f' prompt is :-  {prompt}' )
     try:
         response = client.chat.completions.create(
             model=LLM_MODEL,
