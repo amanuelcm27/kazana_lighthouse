@@ -209,7 +209,7 @@ def send_central_digest():
         email_logger.info(f"✅ Sent digest to central emails: {emails}. Opportunities: {len(opportunity_groups)}")
 
     except Exception as e:
-        email_logger.error(fFailed to send digest: {e}", exc_info=True)
+        email_logger.error(f"Failed to send digest: {e}", exc_info=True)
 
 
 if __name__ == "__main__":
