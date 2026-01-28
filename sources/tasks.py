@@ -1,5 +1,5 @@
 from celery import shared_task
-import logging
+from core.logging import scraper_logger, google_logger
 from sources.scraper import scrape_google_source
 from sources.models import SourceRegistry
 from processing.models import CleanedOpportunity
@@ -10,29 +10,6 @@ from openai import OpenAI
 import json
 import os
 import re
-
-
-scraper_logger = logging.getLogger("scraper_logger")
-google_logger = logging.getLogger("google_logger")
-
-formatter = logging.Formatter(
-    "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
-)
-
-scraper_handler = logging.FileHandler("core/logs/scraper_logger.log")
-scraper_handler.setFormatter(formatter)
-
-google_handler = logging.FileHandler("core/logs/google_ingestor.log")
-google_handler.setFormatter(formatter)
-
-
-for handler, log in [
-    (scraper_handler, scraper_logger),
-    (google_handler, google_logger),
-]:
-    if not log.handlers:
-        log.addHandler(handler)
-    log.setLevel(logging.INFO)
 
 
 Max_Pending_Items_in_cleaned_opportunity = 50
@@ -64,7 +41,7 @@ def run_scraper_task():
             scraper_logger.info(f"Scraping source: {source.base_url}")
             scrape_google_source(source)
         except Exception as e:
-            scraper_logger.error(f"Error scraping {source.base_url}: {e}")
+            scraper_logger.error(f"Error scraping {source.base_url}: {e}", exc_info=True)
 
     return f"Scraped {sources.count()} static sources successfully."
 
@@ -139,5 +116,5 @@ def refresh_google_queries_task():
         google_logger.info(f"Refreshed Google queries pool with {len(queries)} queries.")
         return f"Generated {len(queries)} new queries."
     except Exception as e:
-        google_logger.error(f"Failed to parse GPT response: {e}")
+        google_logger.error(f"Failed to parse GPT response: {e}" , exc_info=True)
         return "Failed to refresh queries."

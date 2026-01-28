@@ -1,19 +1,13 @@
 from django.utils import timezone
 import os
 import json
-import logging
 from core.utils import init_django
 init_django()
-
 from django.utils.dateparse import parse_date
 from processing.models import CleanedOpportunity, ProcessedOpportunity
 from openai import OpenAI
+from core.logging import llm_extractor_logger
 
-logging.basicConfig(
-    filename="core/logs/llm_extractor.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -116,7 +110,7 @@ def extract_opportunity_data(cleaned_opportunity):
             cleaned_opportunity.justification = data.get("justification", "")
             cleaned_opportunity.status = "garbage"
             cleaned_opportunity.save()
-            logging.info(f"Marked as garbage: {cleaned_opportunity.url}")
+            llm_extractor_logger.info(f"Marked as garbage: {cleaned_opportunity.url}")
             return
         
         # case 2: Geographic Failure
@@ -134,7 +128,7 @@ def extract_opportunity_data(cleaned_opportunity):
             cleaned_opportunity.justification = "Missing or expired deadline"
             cleaned_opportunity.status = "garbage"
             cleaned_opportunity.save()
-            logging.info(f"Marked as garbage due to invalid deadline: {cleaned_opportunity.url}")
+            llm_extractor_logger.info(f"Marked as garbage due to invalid deadline: {cleaned_opportunity.url}")
             return
         
         # Case 3: Create ProcessedOpportunity
@@ -156,28 +150,28 @@ def extract_opportunity_data(cleaned_opportunity):
 
         cleaned_opportunity.status = "processed"
         cleaned_opportunity.save()
-        logging.info(f"Processed successfully: {cleaned_opportunity.url}")
+        llm_extractor_logger.info(f"Processed successfully: {cleaned_opportunity.url}")
 
     except json.JSONDecodeError:
         cleaned_opportunity.status = "garbage"
         cleaned_opportunity.save()
-        logging.warning(f"Invalid JSON for: {cleaned_opportunity.url}")
+        llm_extractor_logger.warning(f"Invalid JSON for: {cleaned_opportunity.url}")
 
     except Exception as e:
-        logging.error(f"Error on {cleaned_opportunity.url}: {e}")
+        llm_extractor_logger.error(f"Error on {cleaned_opportunity.url}: {e}", exc_info=True)
 
 
 # --- Batch Processing ---
 def run_extraction():
     pending_items = CleanedOpportunity.objects.filter(status="pending").order_by('-id')[:30]
     if not pending_items.exists():
-        logging.info("No pending items to process.")
+        llm_extractor_logger.info("No pending items to process.")
         return
 
-    logging.info(f"Starting extraction for {pending_items.count()} pending items...")
+    llm_extractor_logger.info(f"Starting extraction for {pending_items.count()} pending items...")
     for item in pending_items:
         extract_opportunity_data(item)
-    logging.info("Extraction batch completed.")
+    llm_extractor_logger.info("Extraction batch completed.")
 
 
 if __name__ == "__main__":

@@ -5,19 +5,12 @@ from openai import OpenAI
 import time
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
-import logging
 from sources.models import RawOpportunity, SourceRegistry
 from playwright.sync_api import sync_playwright
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
 from django.utils import timezone
+from core.logging import scraper_logger
 
-
-# -------------------- Logging --------------------
-logging.basicConfig(
-    filename="core/logs/static_scraper.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
 # -------------------- Config --------------------
 MIN_DELAY = 1
@@ -48,14 +41,14 @@ def fetch_html(url):
             try:
                 page.goto(url, wait_until="domcontentloaded", timeout=23000)
             except PlaywrightTimeoutError:
-                logging.warning(f"Timeout reached for {url}, extracting partial content")
+                scraper_logger.warning(f"Timeout reached for {url}, extracting partial content")
 
             html = page.content()
             browser.close()
             return html
 
     except Exception as e:
-        logging.error(f"Playwright failed to fetch {url}: {e}")
+        scraper_logger.error(f"Playwright failed to fetch {url}: {e}", exc_info=True)
         return None
 
 # -------------------- Extract Candidate Links --------------------
@@ -115,7 +108,7 @@ def filter_links_with_llm(links):
         print(f' llm approved links: {filtered_urls} out of {links}')
         return filtered_urls
     except Exception as e:
-        logging.error(f"LLM evaluation failed: {e}")
+        scraper_logger.error(f"LLM evaluation failed: {e}", exc_info=True)
         return []
 
 # -------------------- Scraper --------------------
@@ -124,7 +117,7 @@ def scrape_google_source(source_registry_entry):
     base_url = source_registry_entry.base_url
     domain = urlparse(base_url).netloc
 
-    logging.info(f"Scraping Google-suggested page: {base_url}")
+    scraper_logger.info(f"Scraping Google-suggested page: {base_url}")
     html = fetch_html(base_url)
     if not html:
         return
@@ -139,14 +132,14 @@ def scrape_google_source(source_registry_entry):
         source_registry_entry.last_scraped = timezone.now()
         source_registry_entry.save()
     except Exception as e:
-        logging.error(f"Failed to save BaseURL RawOpportunity for {base_url}: {e}")
+        scraper_logger.error(f"Failed to save BaseURL RawOpportunity for {base_url}: {e}", exc_info=True)
         
     candidate_links = extract_candidate_links(base_url, html)
-    logging.info(f"Extracted {len(candidate_links)} candidate links from {base_url}")
+    scraper_logger.info(f"Extracted {len(candidate_links)} candidate links from {base_url}")
     filtered_links = filter_links_with_llm(candidate_links)
     saved_links_count = 0
     for link in filtered_links:
-        logging.info(f"Fetching LLM-approved link: {link}")
+        scraper_logger.info(f"Fetching LLM-approved link: {link}")
         page_html = fetch_html(link)
         if page_html:
             try:
@@ -158,12 +151,12 @@ def scrape_google_source(source_registry_entry):
                 )
                 source_registry_entry.last_scraped = timezone.now()
                 source_registry_entry.save()
-                logging.info(f"Saved RawOpportunity for {link}")
+                scraper_logger.info(f"Saved RawOpportunity for {link}")
                 saved_links_count += 1
             except Exception as e:
-                logging.error(f"Failed to save RawOpportunity for {link}: {e}")
+                scraper_logger.error(f"Failed to save RawOpportunity for {link}: {e}", exc_info=True)
 
-    logging.info(f"Scraping complete for {base_url}. Saved {saved_links_count} opportunities.")
+    scraper_logger.info(f"Scraping complete for {base_url}. Saved {saved_links_count} opportunities.")
 
 def run_scraper():
     sources = SourceRegistry.objects.filter(active=True, source_type="google", last_scraped__isnull=True).order_by('-id')[:50]

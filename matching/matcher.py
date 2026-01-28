@@ -1,6 +1,6 @@
 import os
 import json
-import logging
+from core.logging import matcher_logger 
 from core.utils import init_django
 init_django()
 
@@ -8,11 +8,7 @@ from openai import OpenAI
 from processing.models import ProcessedOpportunity
 from .models import Startup, OpportunityMatch
 
-logging.basicConfig(
-    filename="core/logs/matcher.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -53,12 +49,12 @@ def get_unmatched_startups(opportunity):
 def match_startups_to_opportunity(opportunity):
     startups = get_unmatched_startups(opportunity)
     if not startups.exists():
-        logging.info(f"All startups already matched for {opportunity.title}")
+        matcher_logger.info(f"All startups already matched for {opportunity.title}")
         opportunity.matching_status = "matched"
         opportunity.save(update_fields=["matching_status"])
         return
 
-    logging.info(f"Matching {opportunity.title} with {startups.count()} startups...")
+    matcher_logger.info(f"Matching {opportunity.title} with {startups.count()} startups...")
 
     # Prepare startup batch text
     startups_text = []
@@ -106,7 +102,7 @@ def match_startups_to_opportunity(opportunity):
             try:
                 startup = startups.get(name=startup_name)
             except Startup.DoesNotExist:
-                logging.warning(f"Startup {startup_name} not found in DB, skipping")
+                matcher_logger.warning(f"Startup {startup_name} not found in DB, skipping")
                 continue
 
             if is_match:
@@ -120,30 +116,30 @@ def match_startups_to_opportunity(opportunity):
                         "status": "pending",
                     }
                 )
-                logging.info(f"Matched: {opportunity.title} → {startup.name} ({confidence_score})")
+                matcher_logger.info(f"Matched: {opportunity.title} → {startup.name} ({confidence_score})")
             else:
-                logging.info(f"No match: {opportunity.title} → {startup.name}")
+                matcher_logger.info(f"No match: {opportunity.title} → {startup.name}")
 
         # Update matching_status based on whether any startup matched
         opportunity.matching_status = "matched" if any_match else "no match"
         opportunity.save(update_fields=["matching_status"])
 
     except json.JSONDecodeError:
-        logging.error(f"Invalid JSON response for opportunity: {opportunity.title}")
+        matcher_logger.error(f"Invalid JSON response for opportunity: {opportunity.title}", exc_info=True)
     except Exception as e:
-        logging.error(f"Error matching startups to {opportunity.title}: {e}")
+        matcher_logger.error(f"Error matching startups to {opportunity.title}: {e}", exc_info=True)
 
 
 def run_matching():
     opportunities = ProcessedOpportunity.objects.filter(matching_status="pending").order_by('-created_at')[:30]
     if not opportunities.exists():
-        logging.info("No processed opportunities available for matching.")
+        matcher_logger.info("No processed opportunities available for matching.")
         return
 
-    logging.info(f"Starting matching for {opportunities.count()} processed opportunities.")
+    matcher_logger.info(f"Starting matching for {opportunities.count()} processed opportunities.")
     for opp in opportunities:
         match_startups_to_opportunity(opp)
-    logging.info("Matching process completed.")
+    matcher_logger.info("Matching process completed.")
 
 if __name__ == "__main__":
     run_matching()

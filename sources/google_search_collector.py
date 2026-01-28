@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 from googleapiclient.errors import HttpError
 from googleapiclient.discovery import build
-import logging
+from core.logging import google_logger
 import os
 import re
 from core.utils import init_django
@@ -18,12 +18,6 @@ load_dotenv()
 
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 SEARCH_ENGINE_ID = os.getenv("GOOGLE_CX")
-
-logging.basicConfig(
-    filename="core/logs/google_ingestor.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
 
 def normalize_url(url):
@@ -40,7 +34,7 @@ def google_search(query, num_results=10):
         res = service.cse().list(q=query, cx=SEARCH_ENGINE_ID, num=num_results).execute()
         return res.get("items", [])
     except HttpError as e:
-        logging.error(f"Google API error: {e}")
+        google_logger.error(f"Google API error: {e}")
         return []
 
 
@@ -59,9 +53,9 @@ def save_to_registry(results, search_term):
                 base_url=link,
                 active=True,
             )
-            logging.info(f"Added: {name} -> {link}")
+            google_logger.info(f"Added: {name} -> {link}")
         else:
-            logging.info(f"Exists: {link}")
+            google_logger.info(f"Exists: {link}")
 
 
 def refresh_google_queries_task():
@@ -132,7 +126,7 @@ def main():
     for query in list_of_queries:
         results = google_search(query, num_results=10)
         save_to_registry(results, query)
-        logging.info("Source registry updated successfully.")
+        google_logger.info("Source registry updated successfully.")
 
 
 if __name__ == "__main__":

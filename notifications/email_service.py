@@ -1,20 +1,14 @@
 import os
-import logging
 from django.core.mail import EmailMultiAlternatives
 from django.utils import timezone
 from core.utils import init_django
 init_django()
-
+from core.logging import email_logger
 from matching.models import OpportunityMatch
 from processing.models import ProcessedOpportunity
 from django.conf import settings
 
-# --- Logging setup ---
-logging.basicConfig(
-    filename="core/logs/email_service.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
+
 
 
 # Load emails
@@ -155,7 +149,7 @@ def send_central_digest():
     emails = [CENTRAL_EMAIL0, CENTRAL_EMAIL1, CENTRAL_EMAIL2, CENTRAL_EMAIL3]
     emails = [e for e in emails if e]
     if not emails:
-        logging.error("No central notification emails configured.")
+        email_logger.error("No central notification emails configured.", exc_info=True)
         return
 
     # Annotate opportunities with their max confidence score
@@ -169,7 +163,7 @@ def send_central_digest():
     )
 
     if not top_opportunity_ids:
-        logging.info("No opportunity matches to email.")
+        email_logger.info("No opportunity matches to email.")
         return
 
     # Fetch matches for these top opportunities
@@ -188,7 +182,7 @@ def send_central_digest():
     # Fetch unmatched opportunities if needed
     unmatched_opps = ProcessedOpportunity.objects.filter(matching_status='no match')
 
-    logging.info(f"Preparing digest for top {len(opportunity_groups)} opportunities...")
+    email_logger.info(f"Preparing digest for top {len(opportunity_groups)} opportunities...")
 
     # Build email content
     subject = f"📢 {len(opportunity_groups)} New High-Scoring Opportunities (Weekly Digest)"
@@ -212,10 +206,10 @@ def send_central_digest():
                 match.mailed_at = now
                 match.save(update_fields=["mailed_at"])
 
-        logging.info(f"✅ Sent digest to central emails: {emails}. Opportunities: {len(opportunity_groups)}")
+        email_logger.info(f"✅ Sent digest to central emails: {emails}. Opportunities: {len(opportunity_groups)}")
 
     except Exception as e:
-        logging.error(f"❌ Failed to send digest: {e}")
+        email_logger.error(fFailed to send digest: {e}", exc_info=True)
 
 
 if __name__ == "__main__":

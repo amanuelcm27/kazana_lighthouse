@@ -4,14 +4,9 @@ init_django()
 from sources.models import RawOpportunity
 from processing.models import CleanedOpportunity
 from bs4 import BeautifulSoup
-import logging
 import re
+from core.logging import cleaner_logger
 
-logging.basicConfig(
-    filename="core/logs/cleaners.log",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
-)
 
 def clean_html(html_content):
     """Extract visible text from raw HTML and remove scripts/styles."""
@@ -36,10 +31,10 @@ def process_raw_opportunities(batch_size=50):
     )
 
     if not raw_entries.exists():
-        logging.info("No pending raw opportunities to process.")
+        cleaner_logger.info("No pending raw opportunities to process.")
         return
     
-    logging.info(f"Processing {len(raw_entries)} raw opportunities")
+    cleaner_logger.info(f"Processing {len(raw_entries)} raw opportunities")
 
     for raw in raw_entries:
         cleaned_text = clean_html(raw.raw_content)
@@ -53,8 +48,8 @@ def process_raw_opportunities(batch_size=50):
             raw.status = "cleaned"
 
         raw.save()
-        logging.info(f"Updated status for: {raw.url}")
-    logging.info("Processing Raw Opportunities complete.")
+        cleaner_logger.info(f"Updated status for: {raw.url}")
+    cleaner_logger.info("Processing Raw Opportunities complete.")
 
 
 if __name__ == "__main__":

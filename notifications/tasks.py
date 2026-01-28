@@ -2,18 +2,7 @@
 from celery import shared_task
 import logging
 from notifications.email_service import send_central_digest
-formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-
-email_logger = logging.getLogger("email_service")
-email_handler = logging.FileHandler("core/logs/email_service.log")
-email_handler.setFormatter(formatter)
-
-for handler, log in [
-    (email_handler, email_logger),
-]:
-    if not log.handlers:
-        log.addHandler(handler)
-    log.setLevel(logging.INFO)
+from core.logging import email_logger
 
 
 @shared_task
