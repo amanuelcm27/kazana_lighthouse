@@ -83,7 +83,7 @@ def collect_links_via_google_api_task():
             "No query pool found. Generating queries synchronously.")
         refresh_google_queries_task()  # IMPORTANT: sync call
         queries = cache.get("google_queries_pool") or [
-            "latest startup grants and funding opportunities 2025"
+            "latest startup grants and funding opportunities for ethiopian companies and startups"
         ]
 
     index = cache.get("google_query_index", 0)
