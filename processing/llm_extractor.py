@@ -10,8 +10,9 @@ from core.logging import llm_extractor_logger
 
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-EXTRACTION_PROMPT = """
+current_year = timezone.now().year
+current_date = timezone.now().date()
+EXTRACTION_PROMPT = f"""
 
 You are an expert opportunity classifier and extractor.
 
@@ -23,7 +24,7 @@ HARD RULES (evaluate in order):
 
 1. LANGUAGE CHECK
 - If the text is NOT primarily in English → immediately return:
-{ "is_opportunity": false, "justification": "Not written in English" }
+{{ "is_opportunity": false, "justification": "Not written in English" }}
 
 2. GEOGRAPHIC RELEVANCE (MOST IMPORTANT RULE)
 Classify the opportunity location into ONE of the following:
@@ -39,7 +40,7 @@ Rules:
 
 3. DEADLINE VALIDITY
 - The opportunity MUST contain a clear deadline.
-- The deadline MUST be in the future from today.
+- The deadline MUST be in the future from today ({current_date}).
 - If missing or expired → reject immediately.
 
 ONLY IF ALL HARD RULES PASS Evaluate the following RULES:
@@ -56,15 +57,15 @@ ONLY IF ALL HARD RULES PASS Evaluate the following RULES:
 OUTPUT FORMAT (JSON ONLY):
 
 If rejected:
-{
+{{
   "is_opportunity": false,
   "rejection_stage": "language | geography | deadline | domain",
   "geo_scope": "",
   "justification": ""
-}
+}}
 
 If accepted:
-{
+{{
   "is_opportunity": true,
   "geo_scope": "ethiopia | horn_of_africa ",
   "title": "",
@@ -78,7 +79,7 @@ If accepted:
   "posted_date": "",
   "confidence_score": 0.0,
   "justification": ""
-}
+}}
 
 Rules:
 - Always return valid JSON ( no markdown or comments )

@@ -4,7 +4,7 @@ from sources.scraper import scrape_google_source
 from sources.models import SourceRegistry
 from processing.models import CleanedOpportunity
 from sources.google_search_collector import google_search, save_to_registry
-from datetime import datetime
+from datetime import datetime , timezone
 from django.core.cache import cache
 from openai import OpenAI
 import json
@@ -85,20 +85,55 @@ def collect_links_via_google_api_task():
 @shared_task
 def refresh_google_queries_task():
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    now_utc = datetime.now(timezone.utc)
+    current_date = now_utc.strftime("%Y-%m-%d")
+    current_year = now_utc.year
+    prompt = f"""
+        You are generating Google search queries for discovering REAL, CURRENT business opportunities for companies under a holding company .
 
-    prompt = """
-    Generate 6 diverse Google search queries related to:
-    - startup funding
-    - grants
-    - tenders
-    - equity financing
-    - loans
-    - venture capital
-    Guidelines:
-    - Focus on Horn of Africa, East Africa, with hyper focus for Ethiopia
-    - Prefer queries that surface current or recently announced opportunities (ongoing or upcoming)
-    Output ONLY a JSON array of 6 strings.
-    """
+        STRICT RULES:
+            TODAY'S DATE: {current_date}
+            CURRENT YEAR: {current_year}
+        - Queries MUST reference {current_year} or "ongoing" or "open now"
+        - DO NOT mention past years ({current_year - 1} or earlier)
+        - Queries must resemble how a human Googles opportunities
+        - Prefer phrases like: "open call", "applications open", "deadline", "apply", "grant program"
+        - DO NOT generate generic or timeless queries
+
+        TARGET:
+        - Ethiopia (highest priority)
+        - Horn of Africa (acceptable)
+
+        OPPORTUNITY TYPES:
+        - startup funding
+        - grants
+        - tenders / request for proposals (RFPs)
+        - equity financing
+        - loans
+        - venture capital
+        
+        To make sure google results links don't contain any files follow these rules strictly:
+        GOOGLE QUERY CONSTRAINTS:
+        - Exclude PDFs and documents
+        
+        MANDATORY GOOGLE OPERATORS:
+        - Use -filetype:pdf -filetype:doc -filetype:docx etc to exclude file links
+
+        OUTPUT:
+        - EXACTLY 6 queries
+        - Output ONLY a valid JSON array of strings
+        
+        Example output:
+            [
+                "Ethiopia startup grant open call {current_year} -filetype:pdf -site:twitter.com",
+                "Ethiopia agritech funding applications open {current_year} site:.org -filetype:pdf",
+                "Horn of Africa venture capital investment program apply {current_year}",
+                "Ethiopia RFP logistics services deadline {current_year} -filetype:pdf",
+                "Ethiopia fintech accelerator cohort apply now {current_year}",
+                "Development grant Ethiopia SMEs application deadline {current_year}"
+            ]
+        """
+
     response = client.chat.completions.create(
         model="gpt-5-mini",
         messages=[{"role": "user", "content": prompt}],
@@ -108,6 +143,7 @@ def refresh_google_queries_task():
         content = message.content.strip()
         match = re.search(r"\[.*\]", content, re.DOTALL)
         if not match:
+            google_logger.error("No JSON array found in GPT response")
             raise ValueError("No JSON array found in GPT response")
         queries = json.loads(match.group())
         cache.set("google_queries_pool", queries,

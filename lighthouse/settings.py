@@ -144,7 +144,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "run_scraper": {
         "task": "sources.tasks.run_scraper_task",
-        "schedule": timedelta(hours=2),
+        "schedule": timedelta(hours=1, minutes=30),
     },
     "run_cleaners" : {
         "task" : "processing.tasks.run_cleaning_task",

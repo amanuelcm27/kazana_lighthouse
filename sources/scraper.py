@@ -110,10 +110,11 @@ def filter_links_with_llm(links):
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     prompt = """
     
-        You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **f unding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
+        You are an expert funding analyst. From the list of URLs below, identify which ones are likely real **funding opportunities, grants, tenders, or calls for proposals** that a company could apply to. 
 
         **Important:**
-        - Only consider opportunities links related to *funding, grant, equity financing, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunity*
+        - Only consider opportunities links related to funding, grant, equity financing, competition, request for proposal , loans , expression of interest, rfp , eoi , or contract opportunities
+        - Do not consider any links that are files like pdfs or docs or any other non-html resources.
         - Do not include any explanations, numbers, or extra text.
         - Output one URL per line, no commas or bullets.
 
