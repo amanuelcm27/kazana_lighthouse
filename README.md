@@ -1,6 +1,4 @@
 # Project Kazana LightHouse
-# Project Kazana LightHouse
-
 > An AI-powered funding intelligence platform that continuously discovers, evaluates, and delivers relevant funding opportunities for companies within the Kazana ecosystem.
 
 ---
